@@ -1,0 +1,235 @@
+/* ============================================
+   Responsive Styles
+   ============================================ */
+
+/* ---------- Tablet (max 1024px) ---------- */
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .site-footer {
+        margin-left: 0;
+    }
+
+    .content-wrapper {
+        padding: 1.5rem;
+    }
+
+    .hero-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .page-nav {
+        flex-direction: column;
+    }
+
+    .page-nav-btn {
+        max-width: 100%;
+    }
+
+    .topbar-nav .nav-link-top span.nav-text {
+        display: none;
+    }
+}
+
+/* ---------- Mobile (max 768px) ---------- */
+@media (max-width: 768px) {
+    :root {
+        --topbar-height: 56px;
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-section {
+        padding: 2.5rem 1.25rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-wrapper {
+        padding: 1.25rem 1rem;
+    }
+
+    .content-card {
+        padding: 1.25rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .learning-path {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar-search {
+        display: none;
+    }
+
+    .topbar-search.mobile-show {
+        display: block;
+        position: fixed;
+        top: var(--topbar-height);
+        left: 0;
+        right: 0;
+        padding: 0.75rem;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-light);
+        z-index: 1045;
+        margin-left: 0;
+    }
+
+    .topbar-search.mobile-show input {
+        width: 100%;
+    }
+
+    .mobile-search-toggle {
+        display: flex !important;
+    }
+
+    .diagram-flow {
+        flex-direction: column;
+    }
+
+    .diagram-arrow {
+        transform: rotate(90deg);
+    }
+
+    h1 { font-size: 1.85rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+
+    .code-block-wrapper pre {
+        font-size: 0.78rem;
+        padding: 1rem;
+    }
+
+    .step-card {
+        padding: 1.25rem;
+    }
+
+    .section-heading {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ---------- Small Mobile (max 480px) ---------- */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .stats-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar-brand .brand-text {
+        font-size: 1rem;
+    }
+
+    .feature-card {
+        padding: 1.25rem;
+    }
+
+    .table-wrapper {
+        font-size: 0.8rem;
+    }
+
+    .custom-table th,
+    .custom-table td {
+        padding: 0.5rem 0.6rem;
+    }
+
+    .quiz-container {
+        padding: 1rem 1.25rem;
+    }
+
+    .explanation-box {
+        padding: 1rem;
+    }
+
+    .module-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .module-topic {
+        padding-left: 2.5rem;
+    }
+}
+
+/* ---------- Print ---------- */
+@media print {
+    .sidebar, .topbar, .scroll-top-btn, .page-nav,
+    .theme-toggle, .copy-btn, .sidebar-toggle,
+    .mark-complete-btn, .mobile-search-toggle {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+    }
+
+    .site-footer {
+        margin-left: 0 !important;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .content-card, .step-card {
+        break-inside: avoid;
+    }
+}
+
+/* ---------- Hover effects only on non-touch ---------- */
+@media (hover: hover) {
+    .feature-card:hover .feature-icon {
+        transform: scale(1.05);
+    }
+
+    .feature-card .feature-icon {
+        transition: transform var(--transition-normal);
+    }
+}

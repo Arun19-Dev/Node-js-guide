@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Node.js Complete Beginner Learning Roadmap – 17 modules covering fundamentals to deployment with detailed English and Tanglish explanations, code examples, and practice questions.">
+    <title>Node.js Complete Beginner Learning Roadmap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/code-theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="topics">
+
+    <!-- ====== Top Navigation ====== -->
+    <nav class="topbar" id="topbar">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
+        <a href="index.html" class="topbar-brand">
+            <span class="brand-icon"><i class="bi bi-braces-asterisk"></i></span>
+            <span class="brand-text">Node.js Learning</span>
+        </a>
+        <div class="topbar-nav">
+            <a href="index.html" class="nav-link-top"><i class="bi bi-house-door"></i><span class="nav-text">Home</span></a>
+            <a href="fundamentals.html" class="nav-link-top"><i class="bi bi-book"></i><span class="nav-text">Fundamentals</span></a>
+            <a href="topics.html" class="nav-link-top active"><i class="bi bi-list-nested"></i><span class="nav-text">Topics</span></a>
+            <a href="practical-lab.html" class="nav-link-top"><i class="bi bi-terminal"></i><span class="nav-text">Lab</span></a>
+        </div>
+        <div class="topbar-search" id="topbarSearch">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Search topics..." autocomplete="off" aria-label="Search">
+            <div class="search-results-dropdown" id="searchResults"></div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="bi bi-sun-fill"></i></button>
+        <button class="sidebar-toggle mobile-search-toggle" id="mobileSearchToggle" aria-label="Search" style="display:none"><i class="bi bi-search"></i></button>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ====== Sidebar ====== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Modules</div>
+            <a href="#module-1" class="sidebar-link" data-section="mod-1"><i class="bi bi-1-circle link-icon"></i> Fundamentals<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-2" class="sidebar-link" data-section="mod-2"><i class="bi bi-2-circle link-icon"></i> Installation<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-3" class="sidebar-link" data-section="mod-3"><i class="bi bi-3-circle link-icon"></i> JS Revision<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-4" class="sidebar-link" data-section="mod-4"><i class="bi bi-4-circle link-icon"></i> Modules<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-5" class="sidebar-link" data-section="mod-5"><i class="bi bi-5-circle link-icon"></i> npm<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-6" class="sidebar-link" data-section="mod-6"><i class="bi bi-6-circle link-icon"></i> HTTP Servers<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-7" class="sidebar-link" data-section="mod-7"><i class="bi bi-7-circle link-icon"></i> Routing<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-8" class="sidebar-link" data-section="mod-8"><i class="bi bi-8-circle link-icon"></i> Async<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-9" class="sidebar-link" data-section="mod-9"><i class="bi bi-9-circle link-icon"></i> File System<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-10" class="sidebar-link" data-section="mod-10"><i class="bi bi-0-circle link-icon"></i> Express.js<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-11" class="sidebar-link" data-section="mod-11"><i class="bi bi-plug link-icon"></i> API Basics<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-12" class="sidebar-link" data-section="mod-12"><i class="bi bi-shield-lock link-icon"></i> Security<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-13" class="sidebar-link" data-section="mod-13"><i class="bi bi-database link-icon"></i> Database<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-14" class="sidebar-link" data-section="mod-14"><i class="bi bi-key link-icon"></i> Auth<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-15" class="sidebar-link" data-section="mod-15"><i class="bi bi-bug link-icon"></i> Errors<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-16" class="sidebar-link" data-section="mod-16"><i class="bi bi-cloud-upload link-icon"></i> Deploy<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#module-17" class="sidebar-link" data-section="mod-17"><i class="bi bi-kanban link-icon"></i> Projects<i class="bi bi-check-circle-fill completion-check"></i></a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Other Pages</div>
+            <a href="fundamentals.html" class="sidebar-link"><i class="bi bi-book link-icon"></i> Fundamentals</a>
+            <a href="practical-lab.html" class="sidebar-link"><i class="bi bi-terminal link-icon"></i> Practical Lab</a>
+        </div>
+        <div class="sidebar-progress">
+            <div class="sidebar-progress-label"><span>Progress</span><span class="progress-percent">0%</span></div>
+            <div class="sidebar-progress-bar"><div class="sidebar-progress-fill"></div></div>
+        </div>
+    </aside>
+
+    <!-- ====== Main Content ====== -->
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="bi bi-list-nested"></i> Page 2 of 3</div>
+                <h1 class="hero-title">Complete Beginner<br>Learning Roadmap</h1>
+                <p class="hero-subtitle">17 modules covering everything from Node.js basics to deployment. Each topic includes English + Tanglish explanations, code, and practice questions.</p>
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+
+            <!-- ========== MODULE 1 ========== -->
+            <div id="module-1" class="section-heading">
+                <span class="section-number">1</span>
+                <div><h2>Module 1: Node.js Fundamentals</h2></div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header active" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M1</div>
+                        <div>
+                            <div class="module-title">Node.js Fundamentals</div>
+                            <div class="module-count">9 subtopics</div>
+                        </div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body show">
+                        <div class="module-topic"><span class="topic-bullet"></span> Introduction to Node.js</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Features of Node.js</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Advantages and Limitations</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Node.js Architecture</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> V8 Engine</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Event Loop</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Blocking vs Non-blocking</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Synchronous vs Asynchronous</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Node.js Use Cases</div>
+                    </div>
+                </div>
+
+                <!-- Topic Deep Dive: Introduction -->
+                <div class="mt-4">
+                    <h4><i class="bi bi-book" style="color:var(--accent-blue)"></i> Introduction to Node.js</h4>
+
+                    <div class="explanation-box">
+                        <div class="box-label english"><i class="bi bi-chat-text"></i> Definition</div>
+                        <p>Node.js is a cross-platform, open-source JavaScript runtime environment built on Chrome's V8 engine. It executes JavaScript code outside a web browser.</p>
+                    </div>
+
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Node.js na oru JavaScript runtime environment — Chrome V8 engine use panni JavaScript code-ah browser-ku veliya run pannum. Cross-platform na Windows, Mac, Linux-la ellaam run aagum."</p>
+                    </div>
+
+                    <h5 class="mt-3">Features of Node.js</h5>
+                    <ul style="color:var(--text-secondary)">
+                        <li><strong>Asynchronous & Non-blocking:</strong> Doesn't wait for slow operations</li>
+                        <li><strong>Single-threaded with Event Loop:</strong> Handles many connections efficiently</li>
+                        <li><strong>Fast execution:</strong> V8 compiles JS to machine code</li>
+                        <li><strong>npm ecosystem:</strong> 2M+ packages available</li>
+                        <li><strong>Cross-platform:</strong> Works on Windows, Mac, Linux</li>
+                        <li><strong>Full-stack JavaScript:</strong> Same language for frontend + backend</li>
+                    </ul>
+
+                    <h5 class="mt-3">Advantages</h5>
+                    <div class="table-wrapper">
+                        <table class="custom-table">
+                            <thead><tr><th>Advantage</th><th>Explanation</th></tr></thead>
+                            <tbody>
+                                <tr><td>Fast</td><td>V8 engine compiles JS directly to machine code</td></tr>
+                                <tr><td>Scalable</td><td>Non-blocking I/O handles many concurrent connections</td></tr>
+                                <tr><td>Large ecosystem</td><td>npm has 2M+ reusable packages</td></tr>
+                                <tr><td>One language</td><td>JavaScript for both client and server</td></tr>
+                                <tr><td>Active community</td><td>Huge community support and resources</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="mt-3">Limitations</h5>
+                    <ul style="color:var(--text-secondary)">
+                        <li>Not ideal for CPU-intensive tasks (heavy computations)</li>
+                        <li>Callback complexity (can be solved with Promises/async-await)</li>
+                        <li>Single-threaded nature can be a bottleneck for CPU-heavy work</li>
+                    </ul>
+
+                    <div class="explanation-box tip">
+                        <div class="box-label tip"><i class="bi bi-lightbulb"></i> Real-World Use Case</div>
+                        <p>Netflix uses Node.js to serve millions of streaming requests. LinkedIn uses it to handle mobile API traffic. Both chose Node.js for its speed and efficiency with I/O operations.</p>
+                    </div>
+
+                    <div class="explanation-box important">
+                        <div class="box-label important"><i class="bi bi-exclamation-triangle"></i> Common Mistake</div>
+                        <p>Don't confuse Node.js with a framework. Node.js is a <strong>runtime</strong>. Express.js is a <strong>framework</strong> built on top of Node.js.</p>
+                    </div>
+
+                    <!-- Practice Question -->
+                    <div class="quiz-container mt-3" data-answer="b">
+                        <div class="quiz-question"><i class="bi bi-question-circle" style="color:var(--accent-blue)"></i> Practice: What engine does Node.js use?</div>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="q-m1-1" value="a"> SpiderMonkey</label>
+                            <label class="quiz-option"><input type="radio" name="q-m1-1" value="b"> V8</label>
+                            <label class="quiz-option"><input type="radio" name="q-m1-1" value="c"> Chakra</label>
+                            <label class="quiz-option"><input type="radio" name="q-m1-1" value="d"> JavaScriptCore</label>
+                        </div>
+                        <button class="quiz-submit-btn">Check Answer</button>
+                        <div class="quiz-feedback"></div>
+                    </div>
+                </div>
+
+                <button class="mark-complete-btn mt-3" data-section="mod-1">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ========== MODULE 2 ========== -->
+            <div id="module-2" class="section-heading">
+                <span class="section-number">2</span>
+                <div><h2>Module 2: Installation & Development Environment</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M2</div>
+                        <div><div class="module-title">Installation & Environment</div><div class="module-count">8 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> Installing Node.js</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Installing VS Code</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Using the Terminal</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Checking Versions</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Creating a Project Folder</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Creating JavaScript Files</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Running Node.js Programs</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Understanding Project Structure</div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <h4><i class="bi bi-download" style="color:var(--accent-blue)"></i> Setting Up Your Environment</h4>
+                    <div class="explanation-box">
+                        <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                        <p>Before coding, you need to install Node.js and a code editor. VS Code is the most popular editor for Node.js development.</p>
+                    </div>
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Code ezhudha first Node.js install pannanum, VS Code install pannanum. Terminal use panni programs run pannuvom. <code>node -v</code> run panni version check pannalam."</p>
+                    </div>
+
+                    <h5 class="mt-3">Essential Terminal Commands</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-bash"># Check Node.js version
+node -v
+
+# Check npm version
+npm -v
+
+# Create a project folder
+mkdir my-first-project
+
+# Navigate into the folder
+cd my-first-project
+
+# Create a JavaScript file
+# (Use VS Code or any text editor)
+
+# Run a Node.js file
+node app.js</code></pre>
+                    </div>
+
+                    <div class="explanation-box tip">
+                        <div class="box-label tip"><i class="bi bi-lightbulb"></i> Tip</div>
+                        <p>In VS Code, use <code>Ctrl + `</code> (backtick) to open the integrated terminal. This is the easiest way to run Node.js programs.</p>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-2"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULE 3 ========== -->
+            <div id="module-3" class="section-heading">
+                <span class="section-number">3</span>
+                <div><h2>Module 3: JavaScript Revision for Node.js</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M3</div>
+                        <div><div class="module-title">JavaScript Revision</div><div class="module-count">17 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> Variables: var, let, const</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Data Types</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Operators</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Conditional Statements</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Loops</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Functions</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Arrow Functions</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Arrays and Objects</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Destructuring</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Spread & Rest Operators</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Template Literals</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Array Methods</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Callbacks</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Promises</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Async / Await</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Try / Catch</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> ES Modules vs CommonJS</div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <h4><i class="bi bi-code-slash" style="color:var(--accent-purple)"></i> Key JavaScript Concepts for Node.js</h4>
+
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Node.js use panna JavaScript therinjirukkaanum. Variables, functions, arrays, objects, callbacks, promises, async/await — ithellaam Node.js-la daily use pannuvom."</p>
+                    </div>
+
+                    <h5 class="mt-3">Variables</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">// var - function scoped, can be redeclared (avoid in modern code)
+var name = "Arun";
+
+// let - block scoped, can be reassigned
+let age = 22;
+age = 23; // OK
+
+// const - block scoped, cannot be reassigned
+const college = "ABC College";
+// college = "XYZ"; // Error!</code></pre>
+                    </div>
+
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"<code>var</code> old-style — function scope. <code>let</code> na reassign pannalam aana re-declare panna mudiyaadhu. <code>const</code> na value maathavae mudiyaadhu. Modern code-la <code>let</code> and <code>const</code> maathiram use pannunga."</p>
+                    </div>
+
+                    <h5 class="mt-3">Arrow Functions</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">// Traditional function
+function greet(name) {
+    return "Hello " + name;
+}
+
+// Arrow function (shorter syntax)
+const greet = (name) => {
+    return "Hello " + name;
+};
+
+// Even shorter for single expression
+const greet = (name) => "Hello " + name;</code></pre>
+                    </div>
+
+                    <h5 class="mt-3">Callbacks, Promises & Async/Await</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">// Callback: function passed as an argument
+function fetchData(callback) {
+    setTimeout(() => {
+        callback("Data received!");
+    }, 1000);
+}
+fetchData((data) => console.log(data));
+
+// Promise: cleaner way to handle async operations
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Data received!"), 1000);
+    });
+}
+fetchData().then(data => console.log(data));
+
+// Async/Await: cleanest way (looks like sync code)
+async function getData() {
+    try {
+        const data = await fetchData();
+        console.log(data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+getData();</code></pre>
+                    </div>
+
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Callback na oru function-ah vera function-ku argument-ah pass panrathu. Promise na 'future-la value varum' nu oru object. Async/await na Promise-ah clean-ah ezhudha oru shortcut — synchronous maari paakkum aana actually asynchronous-ah run aagum."</p>
+                    </div>
+
+                    <h5 class="mt-3">Destructuring & Spread</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">// Object Destructuring
+const student = { name: "Arun", age: 22, dept: "CSE" };
+const { name, age } = student;
+console.log(name); // "Arun"
+
+// Array Destructuring
+const colors = ["red", "green", "blue"];
+const [first, second] = colors;
+console.log(first); // "red"
+
+// Spread Operator
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+
+// Rest Operator
+function sum(...numbers) {
+    return numbers.reduce((a, b) => a + b, 0);
+}
+console.log(sum(1, 2, 3, 4)); // 10</code></pre>
+                    </div>
+
+                    <div class="quiz-container mt-3" data-answer="c">
+                        <div class="quiz-question"><i class="bi bi-question-circle" style="color:var(--accent-blue)"></i> Practice: Which keyword creates a variable that cannot be reassigned?</div>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="q-m3" value="a"> var</label>
+                            <label class="quiz-option"><input type="radio" name="q-m3" value="b"> let</label>
+                            <label class="quiz-option"><input type="radio" name="q-m3" value="c"> const</label>
+                            <label class="quiz-option"><input type="radio" name="q-m3" value="d"> function</label>
+                        </div>
+                        <button class="quiz-submit-btn">Check Answer</button>
+                        <div class="quiz-feedback"></div>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-3"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULE 4 ========== -->
+            <div id="module-4" class="section-heading">
+                <span class="section-number">4</span>
+                <div><h2>Module 4: Node.js Modules</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M4</div>
+                        <div><div class="module-title">Node.js Modules</div><div class="module-count">14 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> What is a Module?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Built-in Modules</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Local Modules</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Third-party Modules</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> require()</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> module.exports</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> exports shorthand</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> import / export (ESM)</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> CommonJS vs ES Modules</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> node:fs</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> node:path</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> node:os</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> node:http</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> node:url</div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <h4><i class="bi bi-box" style="color:var(--accent-cyan)"></i> Understanding Modules</h4>
+                    <div class="explanation-box">
+                        <div class="box-label english"><i class="bi bi-chat-text"></i> Definition</div>
+                        <p>A <strong>module</strong> is a reusable piece of code that can be imported into other files. Node.js uses modules to organize code into separate files and reuse functionality.</p>
+                    </div>
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Module na reusable code piece. Oru file-la ezhudha code-ah vera file-la import panni use pannalam. Idhu code-ah organize panna help pannum."</p>
+                    </div>
+
+                    <h5 class="mt-3">Creating & Using Local Modules</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> math.js (Local Module)</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">// math.js - Creating a local module
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+// Export functions so other files can use them
+module.exports = { add, subtract };</code></pre>
+                    </div>
+
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> app.js (Using the module)</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">// app.js - Using the local module
+const math = require("./math");
+
+console.log(math.add(5, 3));      // 8
+console.log(math.subtract(10, 4)); // 6</code></pre>
+                    </div>
+
+                    <div class="output-box">
+                        <span class="output-label">Output</span>
+                        <pre>8
+6</pre>
+                    </div>
+
+                    <h5 class="mt-3">Built-in Modules Example: <code>node:path</code></h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">const path = require("node:path");
+
+// Join paths
+const filePath = path.join(__dirname, "data", "students.json");
+console.log(filePath);
+
+// Get file extension
+console.log(path.extname("app.js")); // .js
+
+// Get file name
+console.log(path.basename("/home/user/app.js")); // app.js</code></pre>
+                    </div>
+
+                    <div class="table-wrapper mt-3">
+                        <table class="custom-table">
+                            <thead><tr><th>Type</th><th>How to Import</th><th>Examples</th></tr></thead>
+                            <tbody>
+                                <tr><td>Built-in</td><td><code>require("node:fs")</code></td><td>fs, path, os, http, url</td></tr>
+                                <tr><td>Local</td><td><code>require("./myFile")</code></td><td>Your own .js files</td></tr>
+                                <tr><td>Third-party</td><td><code>require("express")</code></td><td>express, mongoose, dotenv</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-4"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULE 5 ========== -->
+            <div id="module-5" class="section-heading">
+                <span class="section-number">5</span>
+                <div><h2>Module 5: npm & Project Management</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M5</div>
+                        <div><div class="module-title">npm & Packages</div><div class="module-count">14 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> What is npm?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> What is a Package?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> package.json</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> npm init</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> npm install</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Dependencies</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Dev Dependencies</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> npm uninstall</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> npm run</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> npm Scripts</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> package-lock.json</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Semantic Versioning</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> node_modules</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Safe Package Usage</div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <h4><i class="bi bi-box-seam" style="color:var(--accent-green)"></i> npm – Node Package Manager</h4>
+                    <div class="explanation-box">
+                        <div class="box-label english"><i class="bi bi-chat-text"></i> Definition</div>
+                        <p><strong>npm</strong> is the default package manager for Node.js. It lets you install, share, and manage reusable code packages (libraries).</p>
+                    </div>
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"npm na Node Package Manager. Third-party packages install panna, manage panna use pannuvom. <code>npm install express</code> nu run pannina Express.js install aaidum."</p>
+                    </div>
+
+                    <h5 class="mt-3">Essential npm Commands</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-bash"># Initialize a new project (creates package.json)
+npm init -y
+
+# Install a package (adds to dependencies)
+npm install express
+
+# Install a dev-only package
+npm install --save-dev nodemon
+
+# Uninstall a package
+npm uninstall express
+
+# Run a script from package.json
+npm run dev
+
+# Start the project (runs "start" script)
+npm start</code></pre>
+                    </div>
+
+                    <h5 class="mt-3">Understanding package.json</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-json"></i> package.json</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-json">{
+  "name": "my-first-server",
+  "version": "1.0.0",
+  "description": "My first Node.js project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}</code></pre>
+                    </div>
+
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"<code>package.json</code> na project-oda configuration file. Project name, version, dependencies ellaam idhula irukkum. <code>npm init -y</code> run pannina automatically create aagum."</p>
+                    </div>
+
+                    <h5 class="mt-3">Semantic Versioning (SemVer)</h5>
+                    <p>Version format: <code>MAJOR.MINOR.PATCH</code> (e.g., <code>4.18.2</code>)</p>
+                    <div class="table-wrapper">
+                        <table class="custom-table">
+                            <thead><tr><th>Part</th><th>When Incremented</th><th>Example</th></tr></thead>
+                            <tbody>
+                                <tr><td>MAJOR (4)</td><td>Breaking changes</td><td>4.x → 5.x</td></tr>
+                                <tr><td>MINOR (18)</td><td>New features (backward compatible)</td><td>4.17 → 4.18</td></tr>
+                                <tr><td>PATCH (2)</td><td>Bug fixes</td><td>4.18.1 → 4.18.2</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-5"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULE 6 ========== -->
+            <div id="module-6" class="section-heading">
+                <span class="section-number">6</span>
+                <div><h2>Module 6: Creating HTTP Servers</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M6</div>
+                        <div><div class="module-title">HTTP Servers</div><div class="module-count">13 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> What is a Server?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Client-Server Architecture</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> HTTP & HTTPS Basics</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Creating a Server with node:http</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Request Object</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Response Object</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Request Methods</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Response Status Codes</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Headers</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Content Types</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Ports</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Handling Server Errors</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Graceful Shutdown</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="explanation-box">
+                        <div class="box-label english"><i class="bi bi-chat-text"></i> What is a Server?</div>
+                        <p>A <strong>server</strong> is a program that listens for incoming requests from clients (like web browsers) and sends back appropriate responses. It runs continuously, waiting for connections.</p>
+                    </div>
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Server na oru program — client (browser) kitta irundhu request varum, adhukku response anuppum. Server continuously run aagum, request varuvadha wait pannidum."</p>
+                    </div>
+                    <p>Refer to the <a href="fundamentals.html#basic-server">Fundamentals page – Section 6</a> for the complete server creation walkthrough with line-by-line explanations.</p>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-6"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULE 7 ========== -->
+            <div id="module-7" class="section-heading">
+                <span class="section-number">7</span>
+                <div><h2>Module 7: Routing & Endpoints</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M7</div>
+                        <div><div class="module-title">Routing & Endpoints</div><div class="module-count">14 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> What is Routing?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> What is an Endpoint?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> URL Structure</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> HTTP Methods</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> GET Endpoints</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> POST Endpoints</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> PUT & PATCH Endpoints</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> DELETE Endpoints</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Route Parameters</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Query Parameters</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Request Body Basics</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> JSON Responses</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> 404 Handling</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> REST API Fundamentals</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <p>Refer to the <a href="fundamentals.html#endpoints">Fundamentals page – Section 7 & 8</a> for detailed endpoint explanations, HTTP methods table, status codes, and the multiple endpoints example.</p>
+                    <div class="explanation-box">
+                        <div class="box-label english"><i class="bi bi-chat-text"></i> Route Parameters vs Query Parameters</div>
+                        <p><strong>Route params:</strong> <code>/students/5</code> — the <code>5</code> is a dynamic part of the URL path.<br>
+                        <strong>Query params:</strong> <code>/students?dept=CSE&year=3</code> — key-value pairs after the <code>?</code> for filtering.</p>
+                    </div>
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Route parameter na URL path-la irukkura dynamic value — <code>/students/5</code>-la 5 na student ID. Query parameter na <code>?</code> ku appuram vara key=value pairs — filtering-ku use pannuvom."</p>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-7"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULE 8 ========== -->
+            <div id="module-8" class="section-heading">
+                <span class="section-number">8</span>
+                <div><h2>Module 8: Asynchronous Programming</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M8</div>
+                        <div><div class="module-title">Async Programming</div><div class="module-count">11 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> Sync vs Async</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Callbacks</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Callback Errors</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Promises</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Promise Chaining</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Async / Await</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Try / Catch</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Event Loop Basics</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Timers</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Event Emitters</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Error-First Callbacks</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4><i class="bi bi-arrow-repeat" style="color:var(--accent-amber)"></i> Sync vs Async</h4>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">const fs = require("node:fs");
+
+// Synchronous - blocks execution until file is read
+const data = fs.readFileSync("file.txt", "utf-8");
+console.log(data);
+console.log("This runs AFTER file is read");
+
+// Asynchronous - does NOT block
+fs.readFile("file.txt", "utf-8", (err, data) => {
+    if (err) {
+        console.error("Error:", err.message);
+        return;
+    }
+    console.log(data);
+});
+console.log("This runs BEFORE file is read!");</code></pre>
+                    </div>
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Synchronous na one-by-one run aagum — oru line mudiyama next line run aagaadhu. Asynchronous na slow operation background-la run aagum, meanwhile vera code execute aagum."</p>
+                    </div>
+
+                    <h5 class="mt-3">Event Emitters</h5>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">const EventEmitter = require("node:events");
+
+const emitter = new EventEmitter();
+
+// Listen for an event
+emitter.on("greet", (name) => {
+    console.log(`Hello, ${name}!`);
+});
+
+// Emit (trigger) the event
+emitter.emit("greet", "Arun"); // Hello, Arun!</code></pre>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-8"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULE 9 ========== -->
+            <div id="module-9" class="section-heading">
+                <span class="section-number">9</span>
+                <div><h2>Module 9: File System</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M9</div>
+                        <div><div class="module-title">File System (fs)</div><div class="module-count">9 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> Reading Files</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Writing Files</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Appending Files</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Renaming Files</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Deleting Files</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Sync vs Async File Ops</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Working with Paths</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Handling File Errors</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Mini Project: Notes App</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> file-operations.js</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">const fs = require("node:fs");
+
+// Write a file
+fs.writeFileSync("notes.txt", "First note: Learn Node.js\n");
+console.log("File created!");
+
+// Read a file
+const content = fs.readFileSync("notes.txt", "utf-8");
+console.log("File content:", content);
+
+// Append to a file
+fs.appendFileSync("notes.txt", "Second note: Practice daily\n");
+console.log("Content appended!");
+
+// Read again
+console.log(fs.readFileSync("notes.txt", "utf-8"));
+
+// Rename a file
+fs.renameSync("notes.txt", "my-notes.txt");
+console.log("File renamed!");
+
+// Delete a file
+fs.unlinkSync("my-notes.txt");
+console.log("File deleted!");</code></pre>
+                    </div>
+                    <div class="output-box">
+                        <span class="output-label">Output</span>
+                        <pre>File created!
+File content: First note: Learn Node.js
+Content appended!
+First note: Learn Node.js
+Second note: Practice daily
+File renamed!
+File deleted!</pre>
+                    </div>
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"<code>fs</code> module use panni files create, read, write, rename, delete pannalam. <code>writeFileSync</code> na file ezhudhurathu, <code>readFileSync</code> na file padikarathu, <code>appendFileSync</code> na existing file-la content add panrathu."</p>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-9"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULE 10 ========== -->
+            <div id="module-10" class="section-heading">
+                <span class="section-number">10</span>
+                <div><h2>Module 10: Express.js Introduction</h2></div>
+            </div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M10</div>
+                        <div><div class="module-title">Express.js</div><div class="module-count">12 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> What is Express.js?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Why use Express?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Installing Express</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Creating an Express Server</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Routes</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Route Parameters</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Query Parameters</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Middleware</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> express.json()</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Error-handling Middleware</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> 404 Middleware</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Building a REST API</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="explanation-box">
+                        <div class="box-label english"><i class="bi bi-chat-text"></i> What is Express.js?</div>
+                        <p><strong>Express.js</strong> is a minimal, flexible web framework for Node.js. It simplifies server creation, routing, and middleware management compared to using the raw <code>http</code> module.</p>
+                    </div>
+                    <div class="explanation-box tanglish">
+                        <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                        <p>"Express.js na Node.js-ku oru web framework. Raw <code>http</code> module use pannina routing manually pannanum — Express use pannina <code>app.get()</code>, <code>app.post()</code> nu simple-ah route create pannalam."</p>
+                    </div>
+
+                    <div class="code-block-wrapper mt-3">
+                        <div class="code-block-header">
+                            <div class="code-dots"><span></span><span></span><span></span></div>
+                            <span class="code-lang"><i class="bi bi-filetype-js"></i> express-server.js</span>
+                            <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">const express = require("express");
+const app = express();
+
+// Middleware to parse JSON request bodies
+app.use(express.json());
+
+// GET endpoint - Home
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to Express!" });
+});
+
+// GET endpoint - All students
+app.get("/students", (req, res) => {
+    const students = [
+        { id: 1, name: "Arun", dept: "CSE" },
+        { id: 2, name: "Priya", dept: "ECE" }
+    ];
+    res.json(students);
+});
+
+// GET endpoint - Student by ID (Route Parameter)
+app.get("/students/:id", (req, res) => {
+    const studentId = req.params.id;
+    res.json({ message: `Student ID: ${studentId}` });
+});
+
+// POST endpoint - Add student
+app.post("/students", (req, res) => {
+    const newStudent = req.body;
+    res.status(201).json({
+        message: "Student added!",
+        student: newStudent
+    });
+});
+
+// 404 handler (must be last)
+app.use((req, res) => {
+    res.status(404).json({ message: "Route not found" });
+});
+
+// Start server
+app.listen(3000, () => {
+    console.log("Express server running on port 3000");
+});</code></pre>
+                    </div>
+
+                    <div class="explanation-box tip mt-3">
+                        <div class="box-label tip"><i class="bi bi-lightbulb"></i> Why Express over raw http?</div>
+                        <p>Compare the multiple endpoints server from fundamentals.html (using if-else chains) with Express routes above. Express makes it cleaner, more readable, and adds powerful features like middleware, route parameters, and built-in JSON parsing.</p>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-10"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== MODULES 11-17 (Condensed with subtopics) ========== -->
+            <!-- Module 11 -->
+            <div id="module-11" class="section-heading"><span class="section-number">11</span><div><h2>Module 11: API Fundamentals</h2></div></div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M11</div>
+                        <div><div class="module-title">API Fundamentals</div><div class="module-count">10 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> What is an API?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> What is REST?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> JSON format</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> HTTP Request & Response</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> CRUD Operations</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Status Codes</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Postman / API Testing</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> API Validation</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Error Responses</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> API Versioning</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="explanation-box"><div class="box-label english"><i class="bi bi-chat-text"></i> What is an API?</div>
+                    <p>An <strong>API</strong> (Application Programming Interface) is a set of rules and endpoints that allow different software applications to communicate with each other. A <strong>REST API</strong> follows a standard pattern using HTTP methods and URLs.</p></div>
+                    <div class="explanation-box tanglish"><div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"API na oru interface — applications-kku idaiyula communication panna use pannum. REST API na HTTP methods (GET, POST, PUT, DELETE) use panni data send/receive pannum. CRUD na Create, Read, Update, Delete."</p></div>
+                    <div class="table-wrapper mt-3">
+                        <table class="custom-table">
+                            <thead><tr><th>CRUD</th><th>HTTP Method</th><th>Example</th></tr></thead>
+                            <tbody>
+                                <tr><td>Create</td><td>POST</td><td><code>POST /students</code></td></tr>
+                                <tr><td>Read</td><td>GET</td><td><code>GET /students</code></td></tr>
+                                <tr><td>Update</td><td>PUT / PATCH</td><td><code>PUT /students/1</code></td></tr>
+                                <tr><td>Delete</td><td>DELETE</td><td><code>DELETE /students/1</code></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-11"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- Module 12 -->
+            <div id="module-12" class="section-heading"><span class="section-number">12</span><div><h2>Module 12: Environment Variables & Security</h2></div></div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M12</div>
+                        <div><div class="module-title">Env & Security</div><div class="module-count">10 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> Environment Variables</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> .env Files</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> process.env</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Keeping Secrets Safe</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Input Validation</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Safe Error Handling</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> CORS Basics</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> HTTP Security Headers</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Dependency Security</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Never Expose Credentials</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-filetype-raw"></i> .env</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                        <pre><code class="language-bash">PORT=3000
+DB_URL=mongodb+srv://username:password@cluster.mongodb.net/mydb
+JWT_SECRET=my_super_secret_key_123</code></pre>
+                    </div>
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-filetype-js"></i> app.js</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                        <pre><code class="language-javascript">require("dotenv").config();
+
+const port = process.env.PORT || 3000;
+const dbUrl = process.env.DB_URL;
+
+console.log(`Server will run on port ${port}`);
+// Never log sensitive values like DB_URL in production!</code></pre>
+                    </div>
+                    <div class="explanation-box important"><div class="box-label important"><i class="bi bi-exclamation-triangle"></i> Never Expose</div>
+                    <p><strong>Never</strong> commit <code>.env</code> files to Git. Add <code>.env</code> to your <code>.gitignore</code>. Never hardcode passwords, API keys, or database URLs in your source code.</p></div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-12"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- Module 13 -->
+            <div id="module-13" class="section-heading"><span class="section-number">13</span><div><h2>Module 13: Database Fundamentals</h2></div></div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M13</div>
+                        <div><div class="module-title">Database Basics</div><div class="module-count">9 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> What is a Database?</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> SQL vs NoSQL</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> MongoDB Introduction</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> MongoDB Atlas</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Connecting Node.js to MongoDB</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Mongoose Overview</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> CRUD Operations</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Error Handling</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Protecting Credentials</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="explanation-box"><div class="box-label english"><i class="bi bi-chat-text"></i> SQL vs NoSQL</div>
+                    <p><strong>SQL databases</strong> (MySQL, PostgreSQL) store data in tables with rows and columns. <strong>NoSQL databases</strong> (MongoDB) store data in flexible JSON-like documents. MongoDB is popular with Node.js because both use JavaScript-like syntax.</p></div>
+                    <div class="explanation-box tanglish"><div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"SQL database na table format-la data store pannum. NoSQL (MongoDB) na JSON-like documents-la store pannum. MongoDB Node.js-kku best suit aagum — rendukkum JavaScript-maari syntax."</p></div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-13"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- Module 14 -->
+            <div id="module-14" class="section-heading"><span class="section-number">14</span><div><h2>Module 14: Authentication Basics</h2></div></div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M14</div>
+                        <div><div class="module-title">Authentication</div><div class="module-count">8 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> Auth vs Authorization</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Registration & Login</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Password Hashing (bcrypt)</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Sessions & Cookies</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> JWT Fundamentals</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Protected Endpoints</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Input Validation</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Common Mistakes</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="explanation-box"><div class="box-label english"><i class="bi bi-chat-text"></i> Authentication vs Authorization</div>
+                    <p><strong>Authentication:</strong> "Who are you?" — Verifying identity (login).<br><strong>Authorization:</strong> "What are you allowed to do?" — Checking permissions.</p></div>
+                    <div class="explanation-box important"><div class="box-label important"><i class="bi bi-exclamation-triangle"></i> Educational Code Only</div>
+                    <p>Authentication examples in this course are for <strong>learning purposes only</strong>. Production applications require additional security measures like rate limiting, HTTPS, secure cookie flags, token refresh, and more.</p></div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-14"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- Module 15 -->
+            <div id="module-15" class="section-heading"><span class="section-number">15</span><div><h2>Module 15: Error Handling & Debugging</h2></div></div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M15</div>
+                        <div><div class="module-title">Error Handling</div><div class="module-count">10 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> Syntax Errors</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Runtime Errors</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Logical Errors</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Try / Catch</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Promise Rejection</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> VS Code Debugging</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Console Debugging</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> HTTP Error Responses</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Logging</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Common Errors & Solutions</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-filetype-js"></i> JavaScript</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                        <pre><code class="language-javascript">// Try-catch for synchronous errors
+try {
+    const data = JSON.parse("invalid json");
+} catch (error) {
+    console.error("Parse error:", error.message);
+}
+
+// Async error handling
+async function fetchData() {
+    try {
+        const response = await fetch("https://api.example.com/data");
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Fetch error:", error.message);
+        throw error; // Re-throw if needed
+    }
+}
+
+// Unhandled rejection handler (safety net)
+process.on("unhandledRejection", (reason, promise) => {
+    console.error("Unhandled Rejection:", reason);
+});</code></pre>
+                    </div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-15"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- Module 16 -->
+            <div id="module-16" class="section-heading"><span class="section-number">16</span><div><h2>Module 16: Deployment & Real-World Dev</h2></div></div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M16</div>
+                        <div><div class="module-title">Deployment</div><div class="module-count">9 subtopics</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body">
+                        <div class="module-topic"><span class="topic-bullet"></span> Git & GitHub Basics</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Dev vs Production</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Env Variables in Deploy</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Hosting Platforms</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Dynamic Port Config</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Basic Logging</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Health-check Endpoint</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Troubleshooting</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> CI/CD Introduction</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="code-block-wrapper">
+                        <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-filetype-js"></i> production-ready.js</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                        <pre><code class="language-javascript">const express = require("express");
+const app = express();
+
+// Use environment variable for port (hosting platforms set this)
+const PORT = process.env.PORT || 3000;
+
+// Health check endpoint
+app.get("/health", (req, res) => {
+    res.json({ status: "OK", timestamp: new Date().toISOString() });
+});
+
+app.get("/", (req, res) => {
+    res.json({ message: "Production-ready server!" });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});</code></pre>
+                    </div>
+                    <div class="explanation-box tanglish"><div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Deploy pannumbodhu <code>process.env.PORT</code> use pannanum — hosting platform oru random port assign pannum. <code>/health</code> endpoint na server running-ah nu check panna use pannum."</p></div>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-16"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- Module 17 -->
+            <div id="module-17" class="section-heading"><span class="section-number">17</span><div><h2>Module 17: Projects & Practice</h2></div></div>
+            <div class="content-card fade-in">
+                <div class="module-accordion">
+                    <div class="module-header active" onclick="this.classList.toggle('active');this.nextElementSibling.classList.toggle('show')">
+                        <div class="module-icon">M17</div>
+                        <div><div class="module-title">Mini Projects</div><div class="module-count">8 projects</div></div>
+                        <i class="bi bi-chevron-down module-chevron"></i>
+                    </div>
+                    <div class="module-body show">
+                        <div class="module-topic"><span class="topic-bullet"></span> Project 1: Hello Node.js</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Project 2: Basic HTTP Server</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Project 3: Multiple Endpoints</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Project 4: Student Info API</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Project 5: Simple CRUD API</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Project 6: File-based Notes App</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Project 7: Express.js REST API</div>
+                        <div class="module-topic"><span class="topic-bullet"></span> Project 8: MongoDB Student API</div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4>Project Difficulty Levels</h4>
+                    <div class="table-wrapper">
+                        <table class="custom-table">
+                            <thead><tr><th>#</th><th>Project</th><th>Difficulty</th><th>Skills Practiced</th></tr></thead>
+                            <tbody>
+                                <tr><td>1</td><td>Hello Node.js</td><td>⭐ Beginner</td><td>console.log, running node</td></tr>
+                                <tr><td>2</td><td>Basic HTTP Server</td><td>⭐ Beginner</td><td>http module, createServer</td></tr>
+                                <tr><td>3</td><td>Multiple Endpoints</td><td>⭐⭐ Easy</td><td>Routing, status codes, JSON</td></tr>
+                                <tr><td>4</td><td>Student Info API</td><td>⭐⭐ Easy</td><td>GET endpoints, JSON arrays</td></tr>
+                                <tr><td>5</td><td>Simple CRUD API</td><td>⭐⭐⭐ Medium</td><td>All HTTP methods, in-memory data</td></tr>
+                                <tr><td>6</td><td>File-based Notes</td><td>⭐⭐⭐ Medium</td><td>fs module, file read/write</td></tr>
+                                <tr><td>7</td><td>Express REST API</td><td>⭐⭐⭐ Medium</td><td>Express, middleware, params</td></tr>
+                                <tr><td>8</td><td>MongoDB Student API</td><td>⭐⭐⭐⭐ Advanced</td><td>MongoDB, Mongoose, full CRUD</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-3" style="color:var(--text-secondary)">Start from Project 1 and work your way up. Each project builds on skills from the previous one. Refer to the <a href="practical-lab.html">Practical Lab</a> page for step-by-step guidance on Projects 1–3.</p>
+                </div>
+                <button class="mark-complete-btn mt-3" data-section="mod-17"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- Page Navigation -->
+            <div class="page-nav">
+                <a href="fundamentals.html" class="page-nav-btn prev">
+                    <i class="bi bi-arrow-left" style="font-size:1.2rem"></i>
+                    <div><div class="nav-label">Previous</div><div class="nav-title">Fundamentals</div></div>
+                </a>
+                <a href="practical-lab.html" class="page-nav-btn next">
+                    <i class="bi bi-arrow-right" style="font-size:1.2rem"></i>
+                    <div><div class="nav-label">Next</div><div class="nav-title">Practical Lab</div></div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2025 Node.js Learning Platform. Built for students, by a trainer.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="fundamentals.html">Fundamentals</a>
+                <a href="practical-lab.html">Lab</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-chevron-up"></i></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>

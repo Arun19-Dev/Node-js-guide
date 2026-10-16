@@ -1,0 +1,233 @@
+/* ============================================
+   Code Syntax Highlighting Theme
+   Custom dark theme for Highlight.js
+   ============================================ */
+
+/* Base highlight.js overrides */
+.hljs {
+    background: var(--bg-code) !important;
+    color: #e6edf3 !important;
+    font-family: var(--font-code) !important;
+    font-size: 0.85rem !important;
+    line-height: 1.7 !important;
+}
+
+/* Keywords: const, let, var, if, else, return, function, etc */
+.hljs-keyword,
+.hljs-selector-tag {
+    color: #ff7b72;
+    font-weight: 500;
+}
+
+/* Built-in types: require, module, console, etc */
+.hljs-built_in {
+    color: #79c0ff;
+}
+
+/* Strings */
+.hljs-string,
+.hljs-doctag {
+    color: #a5d6ff;
+}
+
+/* Numbers */
+.hljs-number {
+    color: #79c0ff;
+}
+
+/* Function names */
+.hljs-title.function_,
+.hljs-title {
+    color: #d2a8ff;
+}
+
+/* Properties / attributes */
+.hljs-attr,
+.hljs-property {
+    color: #79c0ff;
+}
+
+/* Comments */
+.hljs-comment {
+    color: #8b949e;
+    font-style: italic;
+}
+
+/* Variables & params */
+.hljs-variable,
+.hljs-params {
+    color: #ffa657;
+}
+
+/* Operators */
+.hljs-operator {
+    color: #ff7b72;
+}
+
+/* Punctuation */
+.hljs-punctuation {
+    color: #c9d1d9;
+}
+
+/* Template strings / literals */
+.hljs-template-variable,
+.hljs-template-tag {
+    color: #a5d6ff;
+}
+
+/* Type */
+.hljs-type {
+    color: #ffa657;
+}
+
+/* Literal values (true, false, null) */
+.hljs-literal {
+    color: #79c0ff;
+}
+
+/* Symbol */
+.hljs-symbol {
+    color: #ffa657;
+}
+
+/* Meta */
+.hljs-meta {
+    color: #79c0ff;
+}
+
+/* Regex */
+.hljs-regexp {
+    color: #7ee787;
+}
+
+/* Addition */
+.hljs-addition {
+    color: #aff5b4;
+    background: rgba(46,160,67,0.15);
+}
+
+/* Deletion */
+.hljs-deletion {
+    color: #ffa198;
+    background: rgba(248,81,73,0.15);
+}
+
+/* Subst */
+.hljs-subst {
+    color: #c9d1d9;
+}
+
+/* Section */
+.hljs-section {
+    color: #79c0ff;
+    font-weight: 700;
+}
+
+/* Emphasis */
+.hljs-emphasis {
+    font-style: italic;
+    color: #c9d1d9;
+}
+
+/* Strong */
+.hljs-strong {
+    font-weight: 700;
+    color: #c9d1d9;
+}
+
+/* Light theme overrides */
+[data-theme="light"] .hljs {
+    background: #f6f8fa !important;
+    color: #24292f !important;
+}
+
+[data-theme="light"] .hljs-keyword,
+[data-theme="light"] .hljs-selector-tag {
+    color: #cf222e;
+}
+
+[data-theme="light"] .hljs-built_in {
+    color: #0550ae;
+}
+
+[data-theme="light"] .hljs-string,
+[data-theme="light"] .hljs-doctag {
+    color: #0a3069;
+}
+
+[data-theme="light"] .hljs-number {
+    color: #0550ae;
+}
+
+[data-theme="light"] .hljs-title.function_,
+[data-theme="light"] .hljs-title {
+    color: #8250df;
+}
+
+[data-theme="light"] .hljs-attr,
+[data-theme="light"] .hljs-property {
+    color: #0550ae;
+}
+
+[data-theme="light"] .hljs-comment {
+    color: #6e7781;
+}
+
+[data-theme="light"] .hljs-variable,
+[data-theme="light"] .hljs-params {
+    color: #953800;
+}
+
+[data-theme="light"] .hljs-operator {
+    color: #cf222e;
+}
+
+[data-theme="light"] .hljs-literal {
+    color: #0550ae;
+}
+
+/* Line numbers */
+.code-line-numbers {
+    counter-reset: line;
+}
+
+.code-line-numbers .code-line {
+    counter-increment: line;
+}
+
+.code-line-numbers .code-line::before {
+    content: counter(line);
+    display: inline-block;
+    width: 2em;
+    margin-right: 1em;
+    text-align: right;
+    color: #484f58;
+    font-size: 0.8em;
+    user-select: none;
+}
+
+/* Bash/terminal specific */
+.language-bash .hljs-built_in {
+    color: #79c0ff;
+}
+
+.language-bash .hljs-variable {
+    color: #ffa657;
+}
+
+/* JSON specific */
+.language-json .hljs-attr {
+    color: #79c0ff;
+}
+
+.language-json .hljs-string {
+    color: #a5d6ff;
+}
+
+.language-json .hljs-number {
+    color: #79c0ff;
+}
+
+.language-json .hljs-literal {
+    color: #ffa657;
+}

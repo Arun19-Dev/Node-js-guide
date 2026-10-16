@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build Your First Node.js Server – A step-by-step practical lab with guided exercises, debugging tips, and student assessment.">
+    <title>Build Your First Node.js Server – Practical Lab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/code-theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="lab">
+
+    <!-- Top Nav -->
+    <nav class="topbar" id="topbar">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
+        <a href="index.html" class="topbar-brand">
+            <span class="brand-icon"><i class="bi bi-braces-asterisk"></i></span>
+            <span class="brand-text">Node.js Learning</span>
+        </a>
+        <div class="topbar-nav">
+            <a href="index.html" class="nav-link-top"><i class="bi bi-house-door"></i><span class="nav-text">Home</span></a>
+            <a href="fundamentals.html" class="nav-link-top"><i class="bi bi-book"></i><span class="nav-text">Fundamentals</span></a>
+            <a href="topics.html" class="nav-link-top"><i class="bi bi-list-nested"></i><span class="nav-text">Topics</span></a>
+            <a href="practical-lab.html" class="nav-link-top active"><i class="bi bi-terminal"></i><span class="nav-text">Lab</span></a>
+        </div>
+        <div class="topbar-search" id="topbarSearch">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Search topics..." autocomplete="off" aria-label="Search">
+            <div class="search-results-dropdown" id="searchResults"></div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="bi bi-sun-fill"></i></button>
+        <button class="sidebar-toggle mobile-search-toggle" id="mobileSearchToggle" aria-label="Search" style="display:none"><i class="bi bi-search"></i></button>
+    </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Lab Steps</div>
+            <a href="#step-1" class="sidebar-link" data-section="lab-1"><i class="bi bi-1-circle link-icon"></i> Install Node.js<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-2" class="sidebar-link" data-section="lab-2"><i class="bi bi-2-circle link-icon"></i> Create Folder<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-3" class="sidebar-link" data-section="lab-3"><i class="bi bi-3-circle link-icon"></i> Initialize Project<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-4" class="sidebar-link" data-section="lab-4"><i class="bi bi-4-circle link-icon"></i> Create app.js<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-5" class="sidebar-link" data-section="lab-5"><i class="bi bi-5-circle link-icon"></i> Write Server Code<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-6" class="sidebar-link" data-section="lab-6"><i class="bi bi-6-circle link-icon"></i> Run Server<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-7" class="sidebar-link" data-section="lab-7"><i class="bi bi-7-circle link-icon"></i> Test Server<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-8" class="sidebar-link" data-section="lab-8"><i class="bi bi-8-circle link-icon"></i> Add Endpoints<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-9" class="sidebar-link" data-section="lab-9"><i class="bi bi-9-circle link-icon"></i> Handle 404<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-10" class="sidebar-link" data-section="lab-10"><i class="bi bi-0-circle link-icon"></i> npm Scripts<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-11" class="sidebar-link" data-section="lab-11"><i class="bi bi-bug link-icon"></i> Debug<i class="bi bi-check-circle-fill completion-check"></i></a>
+            <a href="#step-12" class="sidebar-link" data-section="lab-12"><i class="bi bi-pencil-square link-icon"></i> Assessment<i class="bi bi-check-circle-fill completion-check"></i></a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Other Pages</div>
+            <a href="fundamentals.html" class="sidebar-link"><i class="bi bi-book link-icon"></i> Fundamentals</a>
+            <a href="topics.html" class="sidebar-link"><i class="bi bi-list-nested link-icon"></i> Topics</a>
+        </div>
+        <div class="sidebar-progress">
+            <div class="sidebar-progress-label"><span>Lab Progress</span><span class="progress-percent">0%</span></div>
+            <div class="sidebar-progress-bar"><div class="sidebar-progress-fill"></div></div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="bi bi-terminal-fill"></i> Page 3 of 3 – Practical Lab</div>
+                <h1 class="hero-title">Build Your First<br>Node.js Server</h1>
+                <p class="hero-subtitle">Follow each step to build a working Node.js server from scratch. Complete the checklist and take the assessment.</p>
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+
+            <!-- Lab Checklist Overview -->
+            <div class="content-card fade-in">
+                <div class="card-header-custom">
+                    <div class="card-icon"><i class="bi bi-list-check"></i></div>
+                    <div><h3>Lab Completion Checklist</h3><p class="card-subtitle">Track your progress through all 12 steps</p></div>
+                </div>
+                <div class="checklist-item"><input type="checkbox" id="check-1"><label for="check-1">Step 1: Install Node.js and verify with <code>node -v</code></label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-2"><label for="check-2">Step 2: Create project folder</label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-3"><label for="check-3">Step 3: Run <code>npm init -y</code></label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-4"><label for="check-4">Step 4: Create <code>app.js</code> file</label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-5"><label for="check-5">Step 5: Write the server code</label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-6"><label for="check-6">Step 6: Run with <code>node app.js</code></label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-7"><label for="check-7">Step 7: Test in browser at localhost:3000</label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-8"><label for="check-8">Step 8: Add /about, /students, /contact endpoints</label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-9"><label for="check-9">Step 9: Handle 404 for unknown routes</label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-10"><label for="check-10">Step 10: Add npm start script</label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-11"><label for="check-11">Step 11: Understand common debugging issues</label></div>
+                <div class="checklist-item"><input type="checkbox" id="check-12"><label for="check-12">Step 12: Complete the assessment</label></div>
+            </div>
+
+            <!-- ========== STEP 1 ========== -->
+            <div id="step-1" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-1-circle-fill"></i> Step 1</span>
+                <h3>Install Node.js</h3>
+
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> What to Do</div>
+                    <p>Download Node.js <strong>LTS</strong> version from <a href="https://nodejs.org/" target="_blank" rel="noopener">nodejs.org</a>. Install it using the Windows installer (.msi file). After installation, open your terminal.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"nodejs.org-la poi LTS version download pannunga. .msi file-ah double-click panni install pannunga. Install aana udan VS Code open panni terminal-la <code>node -v</code> run pannunga."</p>
+                </div>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <pre><code class="language-bash">node -v
+npm -v</code></pre>
+                </div>
+
+                <div class="output-box">
+                    <span class="output-label">Expected Output (versions may differ)</span>
+                    <pre>v20.11.1
+10.2.4</pre>
+                </div>
+
+                <div class="explanation-box tip">
+                    <div class="box-label tip"><i class="bi bi-lightbulb"></i> Tip</div>
+                    <p>If you see version numbers, the installation is successful. If you get an error, restart your terminal or PC.</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-1"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 2 ========== -->
+            <div id="step-2" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-2-circle-fill"></i> Step 2</span>
+                <h3>Create a Project Folder</h3>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <pre><code class="language-bash">mkdir nodejs-first-server
+cd nodejs-first-server</code></pre>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"<code>mkdir</code> command use panni folder create pannunga. <code>cd</code> use panni adhu folder-ku ulle poonga. Appuram VS Code-la 'File → Open Folder' use panni idhe folder-ah open pannunga."</p>
+                </div>
+
+                <p>In VS Code: <strong>File → Open Folder → Select <code>nodejs-first-server</code></strong></p>
+
+                <button class="mark-complete-btn" data-section="lab-2"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 3 ========== -->
+            <div id="step-3" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-3-circle-fill"></i> Step 3</span>
+                <h3>Initialize the Project</h3>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <pre><code class="language-bash">npm init -y</code></pre>
+                </div>
+
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> What this does</div>
+                    <p>This command creates a <code>package.json</code> file with default values. The <code>-y</code> flag means "yes to all defaults" so you don't have to answer questions.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"<code>npm init -y</code> run pannina <code>package.json</code> file automatically create aagum. Idhu project-oda configuration file — project name, version, scripts ellaam idhula irukkum."</p>
+                </div>
+
+                <p>Your folder now looks like:</p>
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">📁 Project Structure</span></div>
+                    <pre><code class="language-text">nodejs-first-server/
+└── package.json        ← npm created this</code></pre>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-3"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 4 ========== -->
+            <div id="step-4" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-4-circle-fill"></i> Step 4</span>
+                <h3>Create the Application File</h3>
+
+                <p>In VS Code, create a new file named <code>app.js</code> in your project root.</p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang">📁 Project Structure</span></div>
+                    <pre><code class="language-text">nodejs-first-server/
+├── app.js              ← You create this
+└── package.json        ← npm created this</code></pre>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"VS Code-la left side Explorer panel-la right click panni 'New File' select pannunga. File name <code>app.js</code> nu kudunga. <code>package.json</code> file-ah neenga create panna vendaam — npm create pannidum."</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-4"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 5 ========== -->
+            <div id="step-5" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-5-circle-fill"></i> Step 5</span>
+                <h3>Write the Server Code</h3>
+
+                <p>Open <code>app.js</code> and type the following code:</p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-filetype-js"></i> app.js</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <pre><code class="language-javascript">// Import the built-in http module
+const http = require("node:http");
+
+// Create the server
+const server = http.createServer((req, res) => {
+    // Set response header
+    res.writeHead(200, {
+        "Content-Type": "text/plain"
+    });
+
+    // Send response and end
+    res.end("Hello Students! Welcome to Node.js");
+});
+
+// Start the server on port 3000
+server.listen(3000, () => {
+    console.log("Server running at http://localhost:3000");
+});</code></pre>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Line-by-Line Tanglish</div>
+                    <p>
+                        <strong>Line 2:</strong> <code>http</code> module-ah import panrom — server create panna idhaan use pannuvom.<br>
+                        <strong>Line 5:</strong> <code>createServer()</code> call panni new server object create panrom. Request varum bodhu callback function run aagum.<br>
+                        <strong>Line 7:</strong> Status code 200 (OK) set panrom, Content-Type header 'text/plain' nu set panrom.<br>
+                        <strong>Line 12:</strong> Response text anuppi, response-ah end panrom.<br>
+                        <strong>Line 16:</strong> Server-ah port 3000-la start panrom. Ready aana udan message print aagum.
+                    </p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-5"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 6 ========== -->
+            <div id="step-6" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-6-circle-fill"></i> Step 6</span>
+                <h3>Run the Server</h3>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <pre><code class="language-bash">node app.js</code></pre>
+                </div>
+
+                <div class="output-box">
+                    <span class="output-label">Expected Terminal Output</span>
+                    <pre>Server running at http://localhost:3000</pre>
+                </div>
+
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> What this means</div>
+                    <p>Your server is now running! It will keep running until you stop it. The terminal cursor will not return to normal — that's expected because the server is actively listening for requests.</p>
+                </div>
+
+                <div class="explanation-box warning">
+                    <div class="box-label warning"><i class="bi bi-exclamation-triangle"></i> If you see an error</div>
+                    <p>If you see <code>Error: listen EADDRINUSE</code>, port 3000 is already in use. Either close the other program or change the port number in your code (e.g., <code>server.listen(4000, ...)</code>).</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-6"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 7 ========== -->
+            <div id="step-7" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-7-circle-fill"></i> Step 7</span>
+                <h3>Test the Server in Browser</h3>
+
+                <p>Open your web browser and navigate to:</p>
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-globe"></i> Browser</span></div>
+                    <pre><code class="language-text">http://localhost:3000</code></pre>
+                </div>
+
+                <div class="output-box">
+                    <span class="output-label">Browser Output</span>
+                    <pre>Hello Students! Welcome to Node.js</pre>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"<code>localhost</code> na namma own computer. <code>3000</code> na port number. Browser-la idha type pannumbodhu, browser namma server-ku request anuppum, server response anuppum. Browser-la 'Hello Students!' nu vanthaa — CONGRATULATIONS! Neenga first server create pannirukkeenga! 🎉"</p>
+                </div>
+
+                <div class="explanation-box tip">
+                    <div class="box-label tip"><i class="bi bi-lightbulb"></i> Stop the Server</div>
+                    <p>Press <code>Ctrl + C</code> in the terminal to stop the server. You'll need to restart it with <code>node app.js</code> if you make code changes.</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-7"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 8 ========== -->
+            <div id="step-8" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-8-circle-fill"></i> Step 8</span>
+                <h3>Add More Endpoints</h3>
+
+                <p>Stop the server (<code>Ctrl+C</code>), then replace the code in <code>app.js</code> with:</p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-filetype-js"></i> app.js (updated)</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <pre><code class="language-javascript">const http = require("node:http");
+
+const server = http.createServer((req, res) => {
+    // Set JSON content type for all responses
+    res.setHeader("Content-Type", "application/json");
+
+    if (req.method === "GET" && req.url === "/") {
+        // Home endpoint
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            message: "Welcome to Node.js Server"
+        }));
+
+    } else if (req.method === "GET" && req.url === "/about") {
+        // About endpoint
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            message: "This is the About page",
+            version: "1.0.0"
+        }));
+
+    } else if (req.method === "GET" && req.url === "/students") {
+        // Students endpoint - returns JSON array
+        res.writeHead(200);
+        res.end(JSON.stringify([
+            { id: 1, name: "Arun", department: "CSE" },
+            { id: 2, name: "Priya", department: "ECE" },
+            { id: 3, name: "Kumar", department: "IT" }
+        ]));
+
+    } else if (req.method === "GET" && req.url === "/contact") {
+        // Contact endpoint
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            email: "trainer@college.edu",
+            department: "Computer Science"
+        }));
+
+    } else {
+        // 404 - Not Found
+        res.writeHead(404);
+        res.end(JSON.stringify({
+            error: "Endpoint not found",
+            availableEndpoints: ["/", "/about", "/students", "/contact"]
+        }));
+    }
+});
+
+server.listen(3000, () => {
+    console.log("Server running on http://localhost:3000");
+    console.log("Available endpoints: /, /about, /students, /contact");
+});</code></pre>
+                </div>
+
+                <h4 class="mt-3">Test Each Endpoint</h4>
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>URL</th><th>Expected JSON Response</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>localhost:3000/</code></td><td><code>{"message":"Welcome to Node.js Server"}</code></td></tr>
+                            <tr><td><code>localhost:3000/about</code></td><td><code>{"message":"This is the About page","version":"1.0.0"}</code></td></tr>
+                            <tr><td><code>localhost:3000/students</code></td><td><code>[{"id":1,"name":"Arun",...},...]</code></td></tr>
+                            <tr><td><code>localhost:3000/contact</code></td><td><code>{"email":"...","department":"..."}</code></td></tr>
+                            <tr><td><code>localhost:3000/xyz</code></td><td><code>{"error":"Endpoint not found",...}</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-8"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 9 ========== -->
+            <div id="step-9" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-9-circle-fill"></i> Step 9</span>
+                <h3>Handle Invalid Endpoints</h3>
+
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Already Done!</div>
+                    <p>In Step 8, the <code>else</code> block already handles unknown routes by returning a 404 JSON response. This tells the client "this endpoint doesn't exist" along with a list of available endpoints.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"User <code>/xyz</code> maari unknown URL visit pannina, namma <code>else</code> block run aagi 404 error JSON return pannum. Available endpoints list-um kuduppom — user-ku helpful-ah irukkum."</p>
+                </div>
+
+                <p>Try visiting <code>http://localhost:3000/doesnotexist</code> to verify the 404 response works.</p>
+
+                <button class="mark-complete-btn" data-section="lab-9"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 10 ========== -->
+            <div id="step-10" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-0-circle-fill"></i> Step 10</span>
+                <h3>Add npm Scripts</h3>
+
+                <p>Open <code>package.json</code> and update the <code>"scripts"</code> section:</p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-filetype-json"></i> package.json (scripts section)</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <pre><code class="language-json">{
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  }
+}</code></pre>
+                </div>
+
+                <p>Now you can run your server using:</p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header"><div class="code-dots"><span></span><span></span><span></span></div><span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span><button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button></div>
+                    <pre><code class="language-bash"># Production start
+npm start
+
+# Development mode (auto-restart on file changes, Node 18.11+)
+npm run dev</code></pre>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"<code>npm start</code> run pannina <code>node app.js</code> automatically run aagum. <code>npm run dev</code> run pannina <code>--watch</code> flag use aagi file change pannum bodhu auto-restart aagum (Node.js 18.11+ irundhaa). Ivlo dhaan — ipo neenga npm scripts use panna theriyum!"</p>
+                </div>
+
+                <div class="explanation-box tip">
+                    <div class="box-label tip"><i class="bi bi-lightbulb"></i> Note on --watch</div>
+                    <p>The <code>--watch</code> flag is available in Node.js 18.11 and later versions. If your Node.js version is older, you can use <code>nodemon</code> (a third-party package) instead: <code>npm install --save-dev nodemon</code> and set dev script to <code>"nodemon app.js"</code>.</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-10"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 11 ========== -->
+            <div id="step-11" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-bug-fill"></i> Step 11</span>
+                <h3>Debug Common Problems</h3>
+
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>Problem</th><th>Cause</th><th>Solution</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><code>'node' is not recognized</code></td>
+                                <td>Node.js not installed or not in PATH</td>
+                                <td>Reinstall Node.js or restart terminal</td>
+                            </tr>
+                            <tr>
+                                <td><code>Error: listen EADDRINUSE :::3000</code></td>
+                                <td>Port 3000 already used by another process</td>
+                                <td>Kill the other process or change port to 4000</td>
+                            </tr>
+                            <tr>
+                                <td><code>SyntaxError: Unexpected token</code></td>
+                                <td>Typo in your code</td>
+                                <td>Check for missing brackets, commas, or quotes</td>
+                            </tr>
+                            <tr>
+                                <td><code>Cannot find module './app'</code></td>
+                                <td>Wrong file name or path</td>
+                                <td>Verify file name and current directory</td>
+                            </tr>
+                            <tr>
+                                <td>Wrong terminal directory</td>
+                                <td>Terminal is not in the project folder</td>
+                                <td>Use <code>cd</code> to navigate to the correct folder</td>
+                            </tr>
+                            <tr>
+                                <td>Browser shows "can't reach"</td>
+                                <td>Server not running or wrong port</td>
+                                <td>Check terminal for errors, verify URL</td>
+                            </tr>
+                            <tr>
+                                <td>Empty response in browser</td>
+                                <td>Missing <code>res.end()</code></td>
+                                <td>Make sure every response path calls <code>res.end()</code></td>
+                            </tr>
+                            <tr>
+                                <td>Invalid JSON in browser</td>
+                                <td>Wrong Content-Type or malformed JSON</td>
+                                <td>Set <code>Content-Type: application/json</code> and use <code>JSON.stringify()</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Error vandhaa panic aagaama, error message padianga — adhu solution-ku clue kuduppum. Most common issues: wrong directory, missing bracket, port already in use. Terminal message-ah careful-ah paadhunga."</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="lab-11"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- ========== STEP 12 ========== -->
+            <div id="step-12" class="step-card fade-in">
+                <span class="step-number"><i class="bi bi-pencil-square"></i> Step 12</span>
+                <h3>Student Practical Assessment</h3>
+
+                <div class="content-card" style="margin-bottom:1.5rem">
+                    <h4><i class="bi bi-chat-dots" style="color:var(--accent-blue)"></i> Part A: Short Answer Questions (5 marks)</h4>
+                    <ol style="color:var(--text-secondary)">
+                        <li class="mb-2">What is Node.js and what engine does it use?
+                            <button class="answer-toggle" data-target="ans-1"><i class="bi bi-eye"></i> Show Answer</button>
+                            <div class="answer-content" id="ans-1">Node.js is a JavaScript runtime environment built on Google Chrome's V8 engine. It allows you to run JavaScript outside the browser.</div>
+                        </li>
+                        <li class="mb-2">What does <code>require("node:http")</code> do?
+                            <button class="answer-toggle" data-target="ans-2"><i class="bi bi-eye"></i> Show Answer</button>
+                            <div class="answer-content" id="ans-2">It imports the built-in HTTP module that allows you to create HTTP servers and handle requests.</div>
+                        </li>
+                        <li class="mb-2">What is the purpose of <code>res.end()</code>?
+                            <button class="answer-toggle" data-target="ans-3"><i class="bi bi-eye"></i> Show Answer</button>
+                            <div class="answer-content" id="ans-3">It sends the response body to the client and signals that the response is complete. No more data can be written after calling res.end().</div>
+                        </li>
+                        <li class="mb-2">What does port 3000 mean in <code>server.listen(3000)</code>?
+                            <button class="answer-toggle" data-target="ans-4"><i class="bi bi-eye"></i> Show Answer</button>
+                            <div class="answer-content" id="ans-4">Port 3000 is the network port number where the server listens for incoming connections. It's like a door number — the browser connects to the server through this specific port.</div>
+                        </li>
+                        <li class="mb-2">What is the difference between <code>res.writeHead()</code> and <code>res.setHeader()</code>?
+                            <button class="answer-toggle" data-target="ans-5"><i class="bi bi-eye"></i> Show Answer</button>
+                            <div class="answer-content" id="ans-5"><code>res.setHeader()</code> sets a single header. <code>res.writeHead()</code> sets the status code and optionally multiple headers at once. writeHead() must be called before sending the body.</div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="content-card" style="margin-bottom:1.5rem">
+                    <h4><i class="bi bi-question-circle" style="color:var(--accent-purple)"></i> Part B: Multiple Choice Questions (5 marks)</h4>
+
+                    <div class="quiz-container" data-answer="c">
+                        <div class="quiz-question">1. What is Node.js?</div>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="assess-1" value="a"> A programming language</label>
+                            <label class="quiz-option"><input type="radio" name="assess-1" value="b"> A web browser</label>
+                            <label class="quiz-option"><input type="radio" name="assess-1" value="c"> A JavaScript runtime environment</label>
+                            <label class="quiz-option"><input type="radio" name="assess-1" value="d"> A database</label>
+                        </div>
+                        <button class="quiz-submit-btn">Check</button>
+                        <div class="quiz-feedback"></div>
+                    </div>
+
+                    <div class="quiz-container mt-3" data-answer="b">
+                        <div class="quiz-question">2. Which command runs a Node.js file?</div>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="assess-2" value="a"> <code>npm app.js</code></label>
+                            <label class="quiz-option"><input type="radio" name="assess-2" value="b"> <code>node app.js</code></label>
+                            <label class="quiz-option"><input type="radio" name="assess-2" value="c"> <code>run app.js</code></label>
+                            <label class="quiz-option"><input type="radio" name="assess-2" value="d"> <code>start app.js</code></label>
+                        </div>
+                        <button class="quiz-submit-btn">Check</button>
+                        <div class="quiz-feedback"></div>
+                    </div>
+
+                    <div class="quiz-container mt-3" data-answer="d">
+                        <div class="quiz-question">3. What status code means "Not Found"?</div>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="assess-3" value="a"> 200</label>
+                            <label class="quiz-option"><input type="radio" name="assess-3" value="b"> 201</label>
+                            <label class="quiz-option"><input type="radio" name="assess-3" value="c"> 500</label>
+                            <label class="quiz-option"><input type="radio" name="assess-3" value="d"> 404</label>
+                        </div>
+                        <button class="quiz-submit-btn">Check</button>
+                        <div class="quiz-feedback"></div>
+                    </div>
+
+                    <div class="quiz-container mt-3" data-answer="a">
+                        <div class="quiz-question">4. What does <code>JSON.stringify()</code> do?</div>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="assess-4" value="a"> Converts object to JSON string</label>
+                            <label class="quiz-option"><input type="radio" name="assess-4" value="b"> Parses JSON string to object</label>
+                            <label class="quiz-option"><input type="radio" name="assess-4" value="c"> Creates a new file</label>
+                            <label class="quiz-option"><input type="radio" name="assess-4" value="d"> Starts a server</label>
+                        </div>
+                        <button class="quiz-submit-btn">Check</button>
+                        <div class="quiz-feedback"></div>
+                    </div>
+
+                    <div class="quiz-container mt-3" data-answer="b">
+                        <div class="quiz-question">5. How do you stop a running Node.js server?</div>
+                        <div class="quiz-options">
+                            <label class="quiz-option"><input type="radio" name="assess-5" value="a"> Close the browser</label>
+                            <label class="quiz-option"><input type="radio" name="assess-5" value="b"> Press Ctrl + C in the terminal</label>
+                            <label class="quiz-option"><input type="radio" name="assess-5" value="c"> Type "stop" in the terminal</label>
+                            <label class="quiz-option"><input type="radio" name="assess-5" value="d"> Delete the file</label>
+                        </div>
+                        <button class="quiz-submit-btn">Check</button>
+                        <div class="quiz-feedback"></div>
+                    </div>
+                </div>
+
+                <div class="content-card" style="margin-bottom:1.5rem">
+                    <h4><i class="bi bi-code-slash" style="color:var(--accent-green)"></i> Part C: Coding Tasks (5 marks)</h4>
+                    <ol style="color:var(--text-secondary)">
+                        <li class="mb-2"><strong>Task 1:</strong> Create a Node.js file that prints your name, college name, and department using <code>console.log()</code>.</li>
+                        <li class="mb-2"><strong>Task 2:</strong> Create a server that returns <code>{"message": "Hello from my server!"}</code> on the home route.</li>
+                        <li class="mb-2"><strong>Task 3:</strong> Add a <code>/courses</code> endpoint that returns a JSON array of 3 course names.</li>
+                        <li class="mb-2"><strong>Task 4:</strong> Add a <code>/teacher</code> endpoint that returns your teacher's name and subject as JSON.</li>
+                        <li class="mb-2"><strong>Task 5:</strong> Handle unknown routes with a proper 404 JSON response.</li>
+                    </ol>
+                </div>
+
+                <div class="content-card" style="margin-bottom:1.5rem">
+                    <h4><i class="bi bi-rocket" style="color:var(--accent-rose)"></i> Part D: Mini Project (5 marks)</h4>
+                    <p style="color:var(--text-secondary)">Build a <strong>"Student Information Server"</strong> with the following requirements:</p>
+                    <ul style="color:var(--text-secondary)">
+                        <li>Create endpoints: <code>/</code>, <code>/students</code>, <code>/departments</code>, <code>/info</code></li>
+                        <li>The <code>/students</code> endpoint should return at least 5 students with id, name, department, and year fields</li>
+                        <li>The <code>/departments</code> endpoint should return a list of departments</li>
+                        <li>The <code>/info</code> endpoint should return college name and address</li>
+                        <li>Handle 404 errors properly</li>
+                        <li>Use JSON for all responses</li>
+                        <li>Add a <code>"start"</code> script in package.json</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h4><i class="bi bi-clipboard-check" style="color:var(--accent-amber)"></i> Evaluation Rubric (20 Marks)</h4>
+                    <div class="table-wrapper">
+                        <table class="custom-table">
+                            <thead><tr><th>Category</th><th>Marks</th><th>Criteria</th></tr></thead>
+                            <tbody>
+                                <tr><td>Short Answers</td><td>5</td><td>1 mark per correct answer</td></tr>
+                                <tr><td>MCQs</td><td>5</td><td>1 mark per correct answer</td></tr>
+                                <tr><td>Coding Tasks</td><td>5</td><td>1 mark per working task</td></tr>
+                                <tr><td>Mini Project</td><td>5</td><td>Endpoints (2), JSON format (1), 404 handling (1), npm script (1)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <button class="mark-complete-btn mt-3" data-section="lab-12"><i class="bi bi-check-circle"></i> Mark Complete</button>
+            </div>
+
+            <!-- Page Nav -->
+            <div class="page-nav">
+                <a href="topics.html" class="page-nav-btn prev">
+                    <i class="bi bi-arrow-left" style="font-size:1.2rem"></i>
+                    <div><div class="nav-label">Previous</div><div class="nav-title">Complete Topics</div></div>
+                </a>
+                <a href="index.html" class="page-nav-btn next">
+                    <i class="bi bi-arrow-right" style="font-size:1.2rem"></i>
+                    <div><div class="nav-label">Back to</div><div class="nav-title">Home</div></div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2025 Node.js Learning Platform. Built for students, by a trainer.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="fundamentals.html">Fundamentals</a>
+                <a href="topics.html">Topics</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-chevron-up"></i></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Node.js Fundamentals – Learn what Node.js is, how it works, install it, and create your first HTTP server with endpoints. Explained in English and Tanglish.">
+    <title>Node.js Fundamentals – Learn by Understanding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/code-theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="fundamentals">
+
+    <!-- ====== Top Navigation ====== -->
+    <nav class="topbar" id="topbar">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+            <i class="bi bi-list"></i>
+        </button>
+        <a href="index.html" class="topbar-brand">
+            <span class="brand-icon"><i class="bi bi-braces-asterisk"></i></span>
+            <span class="brand-text">Node.js Learning</span>
+        </a>
+        <div class="topbar-nav">
+            <a href="index.html" class="nav-link-top" id="nav-home"><i class="bi bi-house-door"></i><span class="nav-text">Home</span></a>
+            <a href="fundamentals.html" class="nav-link-top active" id="nav-fundamentals"><i class="bi bi-book"></i><span class="nav-text">Fundamentals</span></a>
+            <a href="topics.html" class="nav-link-top" id="nav-topics"><i class="bi bi-list-nested"></i><span class="nav-text">Topics</span></a>
+            <a href="practical-lab.html" class="nav-link-top" id="nav-lab"><i class="bi bi-terminal"></i><span class="nav-text">Lab</span></a>
+        </div>
+        <div class="topbar-search" id="topbarSearch">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Search topics..." autocomplete="off" aria-label="Search">
+            <div class="search-results-dropdown" id="searchResults"></div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="bi bi-sun-fill"></i></button>
+        <button class="sidebar-toggle mobile-search-toggle" id="mobileSearchToggle" aria-label="Search" style="display:none"><i class="bi bi-search"></i></button>
+    </nav>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ====== Sidebar ====== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Fundamentals</div>
+            <a href="#what-is-nodejs" class="sidebar-link" data-section="fund-1">
+                <i class="bi bi-box link-icon"></i> What is Node.js?
+                <i class="bi bi-check-circle-fill completion-check"></i>
+            </a>
+            <a href="#why-nodejs" class="sidebar-link" data-section="fund-2">
+                <i class="bi bi-question-circle link-icon"></i> Why Use Node.js?
+                <i class="bi bi-check-circle-fill completion-check"></i>
+            </a>
+            <a href="#architecture" class="sidebar-link" data-section="fund-3">
+                <i class="bi bi-diagram-3 link-icon"></i> Architecture
+                <i class="bi bi-check-circle-fill completion-check"></i>
+            </a>
+            <a href="#install" class="sidebar-link" data-section="fund-4">
+                <i class="bi bi-download link-icon"></i> Install Node.js
+                <i class="bi bi-check-circle-fill completion-check"></i>
+            </a>
+            <a href="#first-program" class="sidebar-link" data-section="fund-5">
+                <i class="bi bi-play-circle link-icon"></i> First Program
+                <i class="bi bi-check-circle-fill completion-check"></i>
+            </a>
+            <a href="#basic-server" class="sidebar-link" data-section="fund-6">
+                <i class="bi bi-hdd-rack link-icon"></i> Basic Server
+                <i class="bi bi-check-circle-fill completion-check"></i>
+            </a>
+            <a href="#endpoints" class="sidebar-link" data-section="fund-7">
+                <i class="bi bi-signpost-2 link-icon"></i> Endpoints
+                <i class="bi bi-check-circle-fill completion-check"></i>
+            </a>
+            <a href="#multiple-endpoints" class="sidebar-link" data-section="fund-8">
+                <i class="bi bi-code-square link-icon"></i> Multiple Endpoints
+                <i class="bi bi-check-circle-fill completion-check"></i>
+            </a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Other Pages</div>
+            <a href="topics.html" class="sidebar-link"><i class="bi bi-list-nested link-icon"></i> Complete Topics</a>
+            <a href="practical-lab.html" class="sidebar-link"><i class="bi bi-terminal link-icon"></i> Practical Lab</a>
+        </div>
+        <div class="sidebar-progress">
+            <div class="sidebar-progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+            </div>
+            <div class="sidebar-progress-bar">
+                <div class="sidebar-progress-fill"></div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ====== Main Content ====== -->
+    <main class="main-content">
+        <!-- Hero -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="bi bi-book-fill"></i> Page 1 of 3</div>
+                <h1 class="hero-title">Node.js Fundamentals</h1>
+                <p class="hero-subtitle">Learn by Understanding – What Node.js is, how it works, and build your first server</p>
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+
+            <!-- ==================== SECTION 1 ==================== -->
+            <div class="section-heading" id="what-is-nodejs">
+                <span class="section-number">1</span>
+                <div>
+                    <h2>What is Node.js?</h2>
+                </div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                    <p><strong>Node.js</strong> is a <strong>JavaScript runtime environment</strong> that allows you to run JavaScript code outside the web browser. Normally, JavaScript runs only inside browsers like Chrome, Firefox, or Edge. But Node.js lets you use JavaScript to build servers, work with files, connect to databases, and much more — all on your computer or a server.</p>
+                    <p>Node.js was created by <strong>Ryan Dahl</strong> in 2009. He took Google Chrome's V8 JavaScript engine (the same engine that runs JavaScript in Chrome) and wrapped it in a C++ program so JavaScript could run outside the browser.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Node.js na JavaScript code-ah browser-ku veliya execute panna help panra JavaScript runtime. Normal-ah JavaScript browser-la run aagum. Aana Node.js use pannina namma computer-la JavaScript use panni server create pannalam, files-ah read pannalam, database connect pannalam."</p>
+                    <p>"Chrome browser-la irukkura V8 engine-ah eduthu, adhula JavaScript run aagura maari Node.js-la pannirukkanga. Adhanala browser-ku veliyavum JavaScript use panna mudiyum."</p>
+                </div>
+
+                <div class="explanation-box tip">
+                    <div class="box-label tip"><i class="bi bi-globe2"></i> Real-World Example</div>
+                    <p>Think of it like this: JavaScript in a browser is like a cook who can only work in one specific kitchen (the browser). Node.js gives that cook a portable stove — now they can cook anywhere (on any computer, on any server).</p>
+                </div>
+
+                <!-- Diagram: Browser JS vs Node.js -->
+                <div class="diagram-box fade-in">
+                    <h4 style="margin-bottom:1rem;color:var(--text-heading)">JavaScript in Browser vs Node.js</h4>
+                    <div class="diagram-flow">
+                        <div class="diagram-node">
+                            <i class="bi bi-browser-chrome" style="color:var(--accent-blue)"></i><br>
+                            <strong>Browser</strong><br>
+                            <small style="color:var(--text-muted)">DOM, Window, Alert</small>
+                        </div>
+                        <div class="diagram-arrow"><i class="bi bi-arrows-expand"></i></div>
+                        <div class="diagram-node" style="border-color:var(--accent-green)">
+                            <i class="bi bi-filetype-js" style="color:var(--accent-green)"></i><br>
+                            <strong>JavaScript</strong><br>
+                            <small style="color:var(--text-muted)">Core Language</small>
+                        </div>
+                        <div class="diagram-arrow"><i class="bi bi-arrows-expand"></i></div>
+                        <div class="diagram-node highlight">
+                            <i class="bi bi-hdd-stack" style="color:var(--accent-purple)"></i><br>
+                            <strong>Node.js</strong><br>
+                            <small style="color:var(--text-muted)">File System, HTTP, OS</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="explanation-box important">
+                    <div class="box-label important"><i class="bi bi-exclamation-triangle"></i> Remember</div>
+                    <p><strong>Node.js is NOT a programming language.</strong> It is a runtime environment. JavaScript is the language. Node.js is the platform that lets JavaScript run outside the browser.</p>
+                </div>
+
+                <!-- Key Differences Table -->
+                <div class="table-wrapper mt-3">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>JavaScript (Browser)</th>
+                                <th>JavaScript (Node.js)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Runs in</td><td>Web browser</td><td>Computer / Server</td></tr>
+                            <tr><td>Can access DOM?</td><td>Yes</td><td>No</td></tr>
+                            <tr><td>Can access file system?</td><td>No</td><td>Yes</td></tr>
+                            <tr><td>Can create HTTP server?</td><td>No</td><td>Yes</td></tr>
+                            <tr><td>Uses</td><td>Frontend interactivity</td><td>Backend / Server-side</td></tr>
+                            <tr><td>Engine</td><td>V8 (Chrome), SpiderMonkey (Firefox)</td><td>V8 (Google Chrome's engine)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Real-world usage -->
+                <h4 class="mt-4">Real-World Node.js Usage</h4>
+                <ul style="color:var(--text-secondary)">
+                    <li><strong>Netflix</strong> – Uses Node.js for its streaming platform's user interface</li>
+                    <li><strong>LinkedIn</strong> – Switched from Ruby to Node.js for better performance</li>
+                    <li><strong>PayPal</strong> – Built with Node.js for faster development</li>
+                    <li><strong>Uber</strong> – Uses Node.js for real-time ride matching</li>
+                    <li><strong>NASA</strong> – Uses Node.js for accessing space data</li>
+                </ul>
+
+                <button class="mark-complete-btn" data-section="fund-1">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ==================== SECTION 2 ==================== -->
+            <div class="section-heading" id="why-nodejs">
+                <span class="section-number">2</span>
+                <div><h2>Why Do We Use Node.js?</h2></div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                    <p>Node.js is popular because it allows developers to use <strong>one language (JavaScript)</strong> for both frontend and backend. It is fast, lightweight, and designed for building web servers and APIs.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Node.js use pannura main reason na — frontend-layum backend-layum same JavaScript language use pannalam. Server create panna, API build panna, database handle panna, real-time chat application build panna — ellame JavaScript-la pannalam."</p>
+                </div>
+
+                <h4 class="mt-3">What Can You Build with Node.js?</h4>
+
+                <div class="feature-grid" style="margin-top:1rem">
+                    <div class="feature-card" style="cursor:default">
+                        <div class="feature-icon" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);width:40px;height:40px;font-size:1.1rem"><i class="bi bi-hdd-rack"></i></div>
+                        <h4 style="font-size:1rem">Web Servers</h4>
+                        <p>Create servers that respond to browser requests</p>
+                    </div>
+                    <div class="feature-card" style="cursor:default">
+                        <div class="feature-icon" style="background:linear-gradient(135deg,#8b5cf6,#6366f1);width:40px;height:40px;font-size:1.1rem"><i class="bi bi-plug"></i></div>
+                        <h4 style="font-size:1rem">REST APIs</h4>
+                        <p>Build APIs to send and receive JSON data</p>
+                    </div>
+                    <div class="feature-card" style="cursor:default">
+                        <div class="feature-icon" style="background:linear-gradient(135deg,#10b981,#06b6d4);width:40px;height:40px;font-size:1.1rem"><i class="bi bi-chat-dots"></i></div>
+                        <h4 style="font-size:1rem">Real-Time Apps</h4>
+                        <p>Chat apps, live notifications, online games</p>
+                    </div>
+                    <div class="feature-card" style="cursor:default">
+                        <div class="feature-icon" style="background:linear-gradient(135deg,#f59e0b,#f43f5e);width:40px;height:40px;font-size:1.1rem"><i class="bi bi-file-earmark-code"></i></div>
+                        <h4 style="font-size:1rem">File Handling</h4>
+                        <p>Read, write, and manage files on the server</p>
+                    </div>
+                    <div class="feature-card" style="cursor:default">
+                        <div class="feature-icon" style="background:linear-gradient(135deg,#06b6d4,#3b82f6);width:40px;height:40px;font-size:1.1rem"><i class="bi bi-database"></i></div>
+                        <h4 style="font-size:1rem">Database Operations</h4>
+                        <p>Connect to MongoDB, MySQL, PostgreSQL</p>
+                    </div>
+                    <div class="feature-card" style="cursor:default">
+                        <div class="feature-icon" style="background:linear-gradient(135deg,#f43f5e,#8b5cf6);width:40px;height:40px;font-size:1.1rem"><i class="bi bi-box-seam"></i></div>
+                        <h4 style="font-size:1rem">npm Packages</h4>
+                        <p>Access 2M+ reusable packages from npm</p>
+                    </div>
+                </div>
+
+                <div class="explanation-box tip mt-3">
+                    <div class="box-label tip"><i class="bi bi-lightbulb"></i> When to Choose Node.js</div>
+                    <p>Use Node.js when you need to build APIs, handle many concurrent connections (like chat apps), or want to use JavaScript for backend development. It's great for I/O-heavy tasks but not ideal for CPU-intensive work like complex mathematical computations or video encoding.</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="fund-2">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ==================== SECTION 3 ==================== -->
+            <div class="section-heading" id="architecture">
+                <span class="section-number">3</span>
+                <div><h2>Node.js Architecture</h2></div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                    <p>Node.js uses a special architecture that makes it fast and efficient. Here are the key components:</p>
+                </div>
+
+                <h4 class="mt-3"><i class="bi bi-gear" style="color:var(--accent-blue)"></i> V8 Engine</h4>
+                <p>The V8 engine is Google's open-source JavaScript engine written in C++. It compiles JavaScript directly to machine code (binary code that the computer can execute directly), making it extremely fast.</p>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"V8 engine na Google develop panna JavaScript engine. Idhu JavaScript code-ah directly machine code-ah convert pannidum. Adhanaala fast-ah run aagum. Chrome browser-layum Node.js-layum same V8 engine dhaan use aagudhu."</p>
+                </div>
+
+                <h4 class="mt-4"><i class="bi bi-arrow-repeat" style="color:var(--accent-purple)"></i> Event Loop</h4>
+                <p>The event loop is the heart of Node.js. It continuously checks if there are any tasks to execute. When Node.js receives a request, it doesn't wait for one task to finish before starting another — it handles multiple tasks by delegating slow operations (like reading files or database queries) to background workers and continues processing other requests.</p>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Event loop na Node.js-oda core concept. Idhu oru waiter maari — oru table-oda order eduthutu, adhu ready aagura varaikkum vera table-ku poyi order eduppaan. Wait panna maattan. Adhey maari Node.js oru request varudhunna, adhu mudiyura varaikkum wait pannama vera request-ah handle pannum."</p>
+                </div>
+
+                <!-- Event Loop Diagram -->
+                <div class="diagram-box fade-in">
+                    <h4 style="margin-bottom:1rem;color:var(--text-heading)">How the Event Loop Works</h4>
+                    <div class="diagram-flow">
+                        <div class="diagram-node">
+                            <i class="bi bi-inbox" style="color:var(--accent-blue)"></i><br>
+                            <strong>Request</strong><br>
+                            <small style="color:var(--text-muted)">Incoming</small>
+                        </div>
+                        <div class="diagram-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="diagram-node" style="border-color:var(--accent-green)">
+                            <i class="bi bi-stack" style="color:var(--accent-green)"></i><br>
+                            <strong>Call Stack</strong><br>
+                            <small style="color:var(--text-muted)">Execute Code</small>
+                        </div>
+                        <div class="diagram-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="diagram-node highlight">
+                            <i class="bi bi-arrow-repeat" style="color:var(--accent-purple)"></i><br>
+                            <strong>Event Loop</strong><br>
+                            <small style="color:var(--text-muted)">Check & Dispatch</small>
+                        </div>
+                        <div class="diagram-arrow"><i class="bi bi-arrow-right"></i></div>
+                        <div class="diagram-node" style="border-color:var(--accent-amber)">
+                            <i class="bi bi-send" style="color:var(--accent-amber)"></i><br>
+                            <strong>Response</strong><br>
+                            <small style="color:var(--text-muted)">Send Back</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4"><i class="bi bi-layers" style="color:var(--accent-cyan)"></i> Call Stack</h4>
+                <p>The call stack is where JavaScript keeps track of what function is currently running. When a function is called, it's added to the stack. When it finishes, it's removed from the stack. JavaScript can only execute one function at a time (single-threaded).</p>
+
+                <h4 class="mt-4"><i class="bi bi-lightning" style="color:var(--accent-amber)"></i> Non-Blocking I/O</h4>
+                <p>Node.js uses <strong>non-blocking I/O</strong>, which means it doesn't wait for slow operations (like reading a file or querying a database) to finish. Instead, it continues executing other code and processes the result when the operation completes.</p>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Non-blocking I/O na — Node.js file read pannumbodhu adhu mudiyura varaikkum wait pannama, vera code-ah execute pannidum. File read aana udan callback function call aagum. Idhanaala fast-ah work aagum."</p>
+                </div>
+
+                <h4 class="mt-4"><i class="bi bi-cpu" style="color:var(--accent-rose)"></i> Single-Threaded but Powerful</h4>
+                <p>JavaScript itself runs on a single thread (one task at a time). But Node.js uses background worker threads (handled by libuv, a C library) for heavy I/O operations. So while JavaScript code runs on one thread, file reads, database queries, and network requests happen in the background on separate threads.</p>
+
+                <div class="explanation-box important">
+                    <div class="box-label important"><i class="bi bi-exclamation-triangle"></i> Remember</div>
+                    <p>Node.js is single-threaded for JavaScript execution, but uses multiple threads in the background for I/O operations. This is what makes it efficient for handling many concurrent connections.</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="fund-3">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ==================== SECTION 4 ==================== -->
+            <div class="section-heading" id="install">
+                <span class="section-number">4</span>
+                <div><h2>Install Node.js</h2></div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                    <p>To use Node.js, you need to download and install it on your computer. Node.js comes with <strong>npm</strong> (Node Package Manager) automatically.</p>
+                </div>
+
+                <h4 class="mt-3">Step 1: Download Node.js</h4>
+                <p>Go to the official website: <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a></p>
+                <p>You'll see two download options:</p>
+
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>Version</th><th>Description</th><th>Recommended For</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>LTS</strong> (Long Term Support)</td><td>Stable, well-tested version</td><td>Beginners and production use</td></tr>
+                            <tr><td><strong>Current</strong></td><td>Latest features, may have bugs</td><td>Developers who want newest features</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"LTS version na stable version — bugs kammi irukkum, production-la use pannalam. Current version na latest features irukkum aana bugs irukkalam. Beginners-ku LTS download pannunga."</p>
+                </div>
+
+                <h4 class="mt-3">Step 2: Install on Windows</h4>
+                <ol style="color:var(--text-secondary)">
+                    <li>Download the <strong>.msi</strong> installer from nodejs.org</li>
+                    <li>Double-click the downloaded file</li>
+                    <li>Click "Next" through the installation wizard</li>
+                    <li>Accept the license agreement</li>
+                    <li>Keep the default installation path</li>
+                    <li>Click "Install" and wait for completion</li>
+                    <li>Click "Finish"</li>
+                </ol>
+
+                <h4 class="mt-3">Step 3: Verify Installation</h4>
+                <p>Open your terminal (Command Prompt, PowerShell, or VS Code terminal) and run:</p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span>
+                        <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                    </div>
+                    <pre><code class="language-bash">node -v</code></pre>
+                </div>
+
+                <div class="output-box">
+                    <span class="output-label">Expected Output</span>
+                    <pre>v20.11.1</pre>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"<code>node -v</code> command run pannuna, Node.js version number kaatum. Version number vandhaa, installation correct-ah aaiduchu."</p>
+                </div>
+
+                <p class="mt-3">Now check npm:</p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span>
+                        <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                    </div>
+                    <pre><code class="language-bash">npm -v</code></pre>
+                </div>
+
+                <div class="output-box">
+                    <span class="output-label">Expected Output</span>
+                    <pre>10.2.4</pre>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"<code>npm -v</code> run pannuna npm version kaatum. npm na Node Package Manager — third-party packages install panna use pannuvom."</p>
+                </div>
+
+                <div class="explanation-box warning">
+                    <div class="box-label warning"><i class="bi bi-exclamation-triangle"></i> Common Issue</div>
+                    <p>If you see <code>'node' is not recognized as an internal or external command</code>, it means Node.js was not added to your PATH during installation. Try restarting your terminal or reinstalling Node.js.</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="fund-4">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ==================== SECTION 5 ==================== -->
+            <div class="section-heading" id="first-program">
+                <span class="section-number">5</span>
+                <div><h2>Create Your First Node.js Program</h2></div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                    <p>Let's create a simple JavaScript file and run it using Node.js. This is the simplest program you can write.</p>
+                </div>
+
+                <h4 class="mt-3">Step 1: Create a file named <code>app.js</code></h4>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <span class="code-lang"><i class="bi bi-filetype-js"></i> app.js</span>
+                        <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                    </div>
+                    <pre><code class="language-javascript">console.log("Hello Students!");
+console.log("Welcome to Node.js");</code></pre>
+                </div>
+
+                <h4 class="mt-3">Line-by-Line Explanation</h4>
+
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>Line</th><th>Code</th><th>Explanation (English)</th><th>Explanation (Tanglish)</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><code>console.log("Hello Students!");</code></td>
+                                <td>Prints "Hello Students!" to the terminal</td>
+                                <td>"Terminal-la 'Hello Students!' nu print pannum"</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><code>console.log("Welcome to Node.js");</code></td>
+                                <td>Prints "Welcome to Node.js" to the terminal</td>
+                                <td>"Terminal-la 'Welcome to Node.js' nu print pannum"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-3">Step 2: Run the file</h4>
+                <p>Open your terminal, navigate to the folder containing <code>app.js</code>, and run:</p>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span>
+                        <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                    </div>
+                    <pre><code class="language-bash">node app.js</code></pre>
+                </div>
+
+                <div class="output-box">
+                    <span class="output-label">Expected Output</span>
+                    <pre>Hello Students!
+Welcome to Node.js</pre>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"<code>node app.js</code> nu terminal-la type pannumbodhu, Node.js app.js file-ah read panni, adhula irukkura JavaScript code-ah execute pannum. Output terminal-la kaatum."</p>
+                </div>
+
+                <div class="explanation-box tip">
+                    <div class="box-label tip"><i class="bi bi-lightbulb"></i> Tip</div>
+                    <p><code>console.log()</code> works the same way in both the browser console and Node.js terminal. It simply prints output.</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="fund-5">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ==================== SECTION 6 ==================== -->
+            <div class="section-heading" id="basic-server">
+                <span class="section-number">6</span>
+                <div><h2>Create a Basic Node.js Server</h2></div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                    <p>Now let's create an HTTP server. This is a program that listens for requests from web browsers and sends back responses. Node.js has a built-in module called <code>http</code> that lets you create servers without installing anything extra.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"HTTP server na browser-lirundhu vara request-ah listen panni, response anuppura program. Node.js-la <code>http</code> nu oru built-in module irukkum — adhula <code>createServer()</code> function use panni server create pannalam."</p>
+                </div>
+
+                <h4 class="mt-3">The Complete Code</h4>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <span class="code-lang"><i class="bi bi-filetype-js"></i> server.js</span>
+                        <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                    </div>
+                    <pre><code class="language-javascript">const http = require("node:http");
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {
+        "Content-Type": "text/plain"
+    });
+
+    res.end("Hello Students! Welcome to Node.js");
+});
+
+server.listen(3000, () => {
+    console.log("Server running at http://localhost:3000");
+});</code></pre>
+                </div>
+
+                <h4 class="mt-3">Line-by-Line Explanation</h4>
+
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>Code</th><th>English Explanation</th><th>Tanglish</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td><code>const http = require("node:http");</code></td>
+                                <td>Import the built-in HTTP module. <code>require()</code> is the CommonJS way to load modules in Node.js.</td>
+                                <td>"Node.js-oda built-in <code>http</code> module-ah load panrom. <code>require()</code> function use panni module import pannuvom."</td>
+                            </tr>
+                            <tr>
+                                <td><code>http.createServer((req, res) => { ... })</code></td>
+                                <td>Create a new HTTP server. The callback function runs every time a request comes in. <code>req</code> = request info, <code>res</code> = response object.</td>
+                                <td>"Pudhu server create panrom. Oru request varum bodhu callback function run aagum. <code>req</code> na request details, <code>res</code> na response object."</td>
+                            </tr>
+                            <tr>
+                                <td><code>res.writeHead(200, { "Content-Type": "text/plain" })</code></td>
+                                <td>Set the HTTP status code to 200 (OK) and tell the browser the response is plain text.</td>
+                                <td>"Status code 200 (success) set panrom. Content-Type header set panni browser-ku 'idhu plain text' nu solrom."</td>
+                            </tr>
+                            <tr>
+                                <td><code>res.end("Hello Students! Welcome to Node.js")</code></td>
+                                <td>Send the response text and end the response.</td>
+                                <td>"Response text anuppi, response-ah end panrom."</td>
+                            </tr>
+                            <tr>
+                                <td><code>server.listen(3000, () => { ... })</code></td>
+                                <td>Start the server on port 3000. The callback runs when the server is ready.</td>
+                                <td>"Server-ah port 3000-la start panrom. Server ready aana udan callback function run aagum."</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-4">What is a Port?</h4>
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Port na oru number — computer-la ella program-kum oru unique port assign aagum. Port 3000 na namma server listen panra 'door number' maari. Browser-la <code>localhost:3000</code> nu type pannina, adhu namma server-oda door-ah knock pannum."</p>
+                </div>
+
+                <h4 class="mt-3">How to Run and Test</h4>
+                <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <span class="code-lang"><i class="bi bi-terminal"></i> Terminal</span>
+                        <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                    </div>
+                    <pre><code class="language-bash">node server.js</code></pre>
+                </div>
+
+                <div class="output-box">
+                    <span class="output-label">Terminal Output</span>
+                    <pre>Server running at http://localhost:3000</pre>
+                </div>
+
+                <p>Now open your browser and go to: <code>http://localhost:3000</code></p>
+                <p>You should see: <strong>"Hello Students! Welcome to Node.js"</strong></p>
+
+                <div class="explanation-box warning">
+                    <div class="box-label warning"><i class="bi bi-info-circle"></i> How to Stop the Server</div>
+                    <p>Press <code>Ctrl + C</code> in the terminal to stop the server. The server runs continuously until you manually stop it.</p>
+                </div>
+
+                <button class="mark-complete-btn" data-section="fund-6">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ==================== SECTION 7 ==================== -->
+            <div class="section-heading" id="endpoints">
+                <span class="section-number">7</span>
+                <div><h2>What Is an Endpoint?</h2></div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                    <p>An <strong>endpoint</strong> is a specific URL on a server that performs a specific action. When you type a URL in a browser, the browser sends a request to the server at that endpoint, and the server sends back a response.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Endpoint na server-la oru specific URL. Example-ah <code>/about</code> oru endpoint, <code>/students</code> vera oru endpoint. Ovvoru endpoint-kum oru specific work irukkum — oru endpoint about page data return pannum, innonru endpoint student list return pannum."</p>
+                </div>
+
+                <h4 class="mt-3">Key Concepts</h4>
+
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>Term</th><th>Meaning</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>URL</strong></td><td>Full web address</td><td><code>http://localhost:3000/about</code></td></tr>
+                            <tr><td><strong>Route</strong></td><td>The path part of the URL</td><td><code>/about</code></td></tr>
+                            <tr><td><strong>Endpoint</strong></td><td>Route + HTTP method combination</td><td><code>GET /about</code></td></tr>
+                            <tr><td><strong>HTTP Method</strong></td><td>The type of action to perform</td><td>GET, POST, PUT, DELETE</td></tr>
+                            <tr><td><strong>Server</strong></td><td>Program that listens and responds</td><td>Node.js HTTP server</td></tr>
+                            <tr><td><strong>API</strong></td><td>Set of endpoints for apps to communicate</td><td>Student API with multiple endpoints</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-4">HTTP Methods</h4>
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>Method</th><th>Purpose</th><th>Example</th><th>Tanglish</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>GET</code></td><td>Retrieve / read data</td><td>Get list of students</td><td>"Data-vah padikarathu (read)"</td></tr>
+                            <tr><td><code>POST</code></td><td>Create new data</td><td>Add a new student</td><td>"Pudhu data create panrathu"</td></tr>
+                            <tr><td><code>PUT</code></td><td>Replace entire data</td><td>Update all student info</td><td>"Entire data replace panrathu"</td></tr>
+                            <tr><td><code>PATCH</code></td><td>Update part of data</td><td>Change student name only</td><td>"Oru part maathiram update panrathu"</td></tr>
+                            <tr><td><code>DELETE</code></td><td>Remove data</td><td>Delete a student</td><td>"Data-vah delete panrathu"</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-4">Common HTTP Status Codes</h4>
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>Code</th><th>Meaning</th><th>When Used</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>200</code></td><td>OK – Success</td><td>Request was successful</td></tr>
+                            <tr><td><code>201</code></td><td>Created</td><td>New resource was created</td></tr>
+                            <tr><td><code>400</code></td><td>Bad Request</td><td>Client sent invalid data</td></tr>
+                            <tr><td><code>401</code></td><td>Unauthorized</td><td>Authentication required</td></tr>
+                            <tr><td><code>404</code></td><td>Not Found</td><td>Endpoint doesn't exist</td></tr>
+                            <tr><td><code>500</code></td><td>Internal Server Error</td><td>Something went wrong on the server</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Quiz -->
+                <div class="quiz-container mt-4" data-answer="c" data-explanation="An endpoint is a specific URL on a server that performs a specific action.">
+                    <div class="quiz-question">
+                        <i class="bi bi-question-circle" style="color:var(--accent-blue)"></i>
+                        Quiz: What is an endpoint?
+                    </div>
+                    <div class="quiz-options">
+                        <label class="quiz-option">
+                            <input type="radio" name="quiz-endpoint" value="a"> A programming language
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="quiz-endpoint" value="b"> A database table
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="quiz-endpoint" value="c"> A specific URL on a server that performs a specific action
+                        </label>
+                        <label class="quiz-option">
+                            <input type="radio" name="quiz-endpoint" value="d"> A JavaScript variable
+                        </label>
+                    </div>
+                    <button class="quiz-submit-btn">Check Answer</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <button class="mark-complete-btn mt-3" data-section="fund-7">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ==================== SECTION 8 ==================== -->
+            <div class="section-heading" id="multiple-endpoints">
+                <span class="section-number">8</span>
+                <div><h2>Create Multiple Endpoints</h2></div>
+            </div>
+
+            <div class="content-card fade-in">
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> Simple English</div>
+                    <p>Now let's create a server with multiple endpoints. Each endpoint will return a different response based on the URL the user visits.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"Ipo namma oru server create pannuvom — adhula multiple endpoints irukkum. <code>/</code> endpoint home page kaatum, <code>/about</code> about page kaatum, <code>/students</code> student data return pannum. Unknown URL vandha 404 error return pannum."</p>
+                </div>
+
+                <h4 class="mt-3">Server with Multiple Endpoints</h4>
+
+                <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <span class="code-lang"><i class="bi bi-filetype-js"></i> server.js</span>
+                        <button class="copy-btn"><i class="bi bi-clipboard"></i> Copy</button>
+                    </div>
+                    <pre><code class="language-javascript">const http = require("node:http");
+
+const server = http.createServer((req, res) => {
+    res.setHeader("Content-Type", "application/json");
+
+    if (req.method === "GET" && req.url === "/") {
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            message: "Welcome to Node.js"
+        }));
+    } else if (req.method === "GET" && req.url === "/about") {
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            message: "This is the About endpoint"
+        }));
+    } else if (req.method === "GET" && req.url === "/students") {
+        res.writeHead(200);
+        res.end(JSON.stringify([
+            { id: 1, name: "Arun" },
+            { id: 2, name: "Priya" }
+        ]));
+    } else if (req.method === "GET" && req.url === "/contact") {
+        res.writeHead(200);
+        res.end(JSON.stringify({
+            email: "trainer@example.com",
+            phone: "Not provided"
+        }));
+    } else {
+        res.writeHead(404);
+        res.end(JSON.stringify({
+            message: "Endpoint not found"
+        }));
+    }
+});
+
+server.listen(3000, () => {
+    console.log("Server running on port 3000");
+});</code></pre>
+                </div>
+
+                <h4 class="mt-4">Endpoint Reference Table</h4>
+                <div class="table-wrapper">
+                    <table class="custom-table">
+                        <thead><tr><th>Method</th><th>Endpoint</th><th>Purpose</th><th>Status Code</th><th>Response</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>GET</code></td><td><code>/</code></td><td>Home page</td><td>200</td><td><code>{"message":"Welcome to Node.js"}</code></td></tr>
+                            <tr><td><code>GET</code></td><td><code>/about</code></td><td>About page</td><td>200</td><td><code>{"message":"This is the About endpoint"}</code></td></tr>
+                            <tr><td><code>GET</code></td><td><code>/students</code></td><td>Student list</td><td>200</td><td><code>[{"id":1,"name":"Arun"},...]</code></td></tr>
+                            <tr><td><code>GET</code></td><td><code>/contact</code></td><td>Contact info</td><td>200</td><td><code>{"email":"...", "phone":"..."}</code></td></tr>
+                            <tr><td>Any</td><td>Unknown</td><td>Not found</td><td>404</td><td><code>{"message":"Endpoint not found"}</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="mt-4">Key Explanations</h4>
+
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> <code>setHeader</code> vs <code>writeHead</code></div>
+                    <p><code>res.setHeader()</code> sets a single header. <code>res.writeHead()</code> sets the status code and can set multiple headers at once. In this example, we set the Content-Type once using <code>setHeader</code> and then set the status code separately using <code>writeHead</code>.</p>
+                </div>
+
+                <div class="explanation-box">
+                    <div class="box-label english"><i class="bi bi-chat-text"></i> <code>JSON.stringify()</code></div>
+                    <p><code>JSON.stringify()</code> converts a JavaScript object or array into a JSON string. This is needed because <code>res.end()</code> only sends strings or Buffers, not JavaScript objects directly.</p>
+                </div>
+
+                <div class="explanation-box tanglish">
+                    <div class="box-label tanglish"><i class="bi bi-translate"></i> Tanglish</div>
+                    <p>"<code>req.url</code> na browser-la user type panna URL path. <code>req.method</code> na GET, POST maari HTTP method. <code>if-else</code> use panni ovvoru URL-kum vera vera response anuppurom. Unknown URL vandha 404 status code anuppurom — 'not found' nu."</p>
+                </div>
+
+                <h4 class="mt-3">How to Test</h4>
+                <ol style="color:var(--text-secondary)">
+                    <li>Run <code>node server.js</code> in your terminal</li>
+                    <li>Open your browser and visit each endpoint:
+                        <ul>
+                            <li><code>http://localhost:3000/</code></li>
+                            <li><code>http://localhost:3000/about</code></li>
+                            <li><code>http://localhost:3000/students</code></li>
+                            <li><code>http://localhost:3000/contact</code></li>
+                            <li><code>http://localhost:3000/xyz</code> (should show 404)</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="explanation-box important">
+                    <div class="box-label important"><i class="bi bi-exclamation-triangle"></i> Important Note</div>
+                    <p>This is a demonstration using Node.js's built-in HTTP module. In real projects, you would use a framework like <strong>Express.js</strong> which makes routing much simpler. We'll learn Express.js in the Topics page (Module 10).</p>
+                </div>
+
+                <!-- Quiz -->
+                <div class="quiz-container mt-4" data-answer="b" data-explanation="JSON.stringify() converts a JavaScript object to a JSON string.">
+                    <div class="quiz-question">
+                        <i class="bi bi-question-circle" style="color:var(--accent-blue)"></i>
+                        Quiz: What does <code>JSON.stringify()</code> do?
+                    </div>
+                    <div class="quiz-options">
+                        <label class="quiz-option"><input type="radio" name="quiz-json" value="a"> Parses a JSON string into an object</label>
+                        <label class="quiz-option"><input type="radio" name="quiz-json" value="b"> Converts a JavaScript object to a JSON string</label>
+                        <label class="quiz-option"><input type="radio" name="quiz-json" value="c"> Creates a new server</label>
+                        <label class="quiz-option"><input type="radio" name="quiz-json" value="d"> Reads a file from disk</label>
+                    </div>
+                    <button class="quiz-submit-btn">Check Answer</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <button class="mark-complete-btn mt-3" data-section="fund-8">
+                    <i class="bi bi-check-circle"></i> Mark Complete
+                </button>
+            </div>
+
+            <!-- ==================== Page Navigation ==================== -->
+            <div class="page-nav">
+                <a href="index.html" class="page-nav-btn prev">
+                    <i class="bi bi-arrow-left" style="font-size:1.2rem"></i>
+                    <div>
+                        <div class="nav-label">Previous</div>
+                        <div class="nav-title">Home</div>
+                    </div>
+                </a>
+                <a href="topics.html" class="page-nav-btn next">
+                    <i class="bi bi-arrow-right" style="font-size:1.2rem"></i>
+                    <div>
+                        <div class="nav-label">Next</div>
+                        <div class="nav-title">Complete Topics</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2025 Node.js Learning Platform. Built for students, by a trainer.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="topics.html">Topics</a>
+                <a href="practical-lab.html">Lab</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top"><i class="bi bi-chevron-up"></i></button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
